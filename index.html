@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Singaraja Social Coffee — Premium coffee shop & event space di Singaraja, Bali. Nikmati specialty coffee, ruang kreatif, dan pengalaman sosial yang tak terlupakan." />
+  <meta name="description" content="Singaraja Social Coffee — Premium coffee shop & event space di Singaraja, Bali." />
   <title>Singaraja Social Coffee — Premium Coffee & Event Space</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,20 +25,10 @@
           colors: {
             cream: '#FDF5E6',
             'cream-dark': '#F5E6C8',
-            coffee: {
-              400: '#A0714A',
-              500: '#7A4F35',
-              600: '#5C3520',
-              700: '#3E2723',
-              800: '#2C1A17',
-              900: '#1A0F0D',
-            },
+            coffee: { 400: '#A0714A', 500: '#7A4F35', 600: '#5C3520', 700: '#3E2723', 800: '#2C1A17', 900: '#1A0F0D' },
             gold: { 300: '#FFD700', 500: '#B89A00' }
           },
-          fontFamily: {
-            playfair: ['"Playfair Display"', 'serif'],
-            inter: ['Inter', 'sans-serif'],
-          }
+          fontFamily: { playfair: ['"Playfair Display"', 'serif'], inter: ['Inter', 'sans-serif'] }
         }
       }
     }
@@ -50,10 +40,10 @@
     html { scroll-behavior: smooth; }
     body { background-color: #FDF5E6; color: #3E2723; font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-    /* NAVBAR GLASSMORPHISM */
+    /* NAVBAR */
     #navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: all 0.4s ease; }
     #navbar.scrolled { background: rgba(253, 245, 230, 0.9); backdrop-filter: blur(15px); box-shadow: 0 4px 24px rgba(62, 39, 35, 0.06); }
-    .nav-link { font-weight: 500; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.3s ease; position: relative; }
+    .nav-link { font-weight: 500; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.3s ease; }
     .nav-link:hover { color: #B89A00; }
 
     /* BUTTONS */
@@ -62,42 +52,46 @@
     .btn-secondary { background: transparent; color: #3E2723; font-weight: 600; padding: 0.75rem 1.5rem; border-radius: 100px; border: 1.5px solid rgba(62, 39, 35, 0.25); transition: all 0.3s ease; cursor: pointer; }
     .btn-secondary:hover { border-color: #3E2723; background: rgba(62, 39, 35, 0.04); }
 
-    /* FEATURE CARDS (Animasi Bouncy yang udah dibenerin) */
+    /* FEATURE CARDS (Bouncy Hover) */
     .feature-card { background: rgba(255, 255, 255, 0.6); border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 20px; padding: 2rem; box-shadow: 0 4px 20px rgba(62, 39, 35, 0.06); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
     .feature-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 35px rgba(62, 39, 35, 0.15); border-color: #B89A00; }
     .feature-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1.25rem; transition: transform 0.3s ease; }
     .feature-card:hover .feature-icon { transform: scale(1.1) rotate(5deg); }
 
-    /* MENU GRID (Animasi Fade yang udah dibenerin) */
+    /* MENU GRID (Smooth Fade) */
     .menu-grid-item { background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(255, 255, 255, 0.9); border-radius: 16px; padding: 1.25rem; box-shadow: 0 2px 12px rgba(62, 39, 35, 0.06); display: flex; align-items: center; gap: 1rem; transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.3s ease; opacity: 1; transform: translateY(0); }
     .menu-grid-item:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(62, 39, 35, 0.1); }
     .menu-grid-item.fade-out { opacity: 0; transform: translateY(10px); }
-    .menu-hidden-items { max-height: 0; overflow: hidden; transition: max-height 0.6s ease; }
-    .menu-hidden-items.expanded { max-height: 2000px; }
-    
-    /* GALLERY & SWIPER */
+    .menu-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(62, 39, 35, 0.08); transition: transform 0.3s ease; }
+    .menu-card:hover { transform: translateY(-4px); }
+
+    /* FORM RESERVASI PREMIUM LU */
+    .form-input { width: 100%; background: rgba(255, 255, 255, 0.7); border: 1.5px solid rgba(62, 39, 35, 0.12); border-radius: 12px; padding: 0.75rem 1rem; font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #3E2723; transition: border-color 0.3s ease, box-shadow 0.3s ease; outline: none; }
+    .form-input:focus { border-color: #B89A00; box-shadow: 0 0 0 3px rgba(184, 154, 0, 0.1); }
+    .form-label { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5C3520; margin-bottom: 0.4rem; display: block; }
+    .purpose-card { border: 2px solid rgba(62, 39, 35, 0.1); border-radius: 14px; padding: 1rem; cursor: pointer; transition: all 0.3s ease; text-align: center; background: rgba(255, 255, 255, 0.5); }
+    .purpose-card:hover { border-color: #B89A00; background: rgba(255, 215, 0, 0.05); }
+    .purpose-card.selected { border-color: #B89A00; background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(184, 154, 0, 0.05)); box-shadow: 0 0 0 4px rgba(184, 154, 0, 0.1); }
+    #toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: #3E2723; color: #FFD700; padding: 0.75rem 1.5rem; border-radius: 100px; font-size: 0.8125rem; font-weight: 500; z-index: 10000; transition: transform 0.4s ease; box-shadow: 0 4px 20px rgba(62, 39, 35, 0.3); }
+    #toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* UTILITIES */
+    .gold-divider { width: 48px; height: 2px; background: linear-gradient(90deg, #B89A00, #FFD700); margin: 0 auto; }
+    .filter-btn { padding: 0.5rem 1.25rem; border-radius: 100px; border: 1.5px solid rgba(62, 39, 35, 0.2); font-size: 0.75rem; font-weight: 600; transition: all 0.3s ease; }
+    .filter-btn.active, .filter-btn:hover { background: #3E2723; color: #FFD700; border-color: #3E2723; }
     .gallery-grid { columns: 3; column-gap: 1rem; }
     @media (max-width: 768px) { .gallery-grid { columns: 2; } }
     @media (max-width: 480px) { .gallery-grid { columns: 1; } }
     .gallery-item { break-inside: avoid; margin-bottom: 1rem; border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; }
     .gallery-item img { width: 100%; display: block; transition: transform 0.5s ease; }
     .gallery-item:hover img { transform: scale(1.05); }
-    .menu-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(62, 39, 35, 0.08); transition: transform 0.3s ease; }
-    .menu-card:hover { transform: translateY(-4px); }
-    
-    /* UTILITIES */
-    .gold-divider { width: 48px; height: 2px; background: linear-gradient(90deg, #B89A00, #FFD700); margin: 0 auto; }
-    .filter-btn { padding: 0.5rem 1.25rem; border-radius: 100px; border: 1.5px solid rgba(62, 39, 35, 0.2); font-size: 0.75rem; font-weight: 600; transition: all 0.3s ease; }
-    .filter-btn.active, .filter-btn:hover { background: #3E2723; color: #FFD700; border-color: #3E2723; }
-    .form-input { width: 100%; background: rgba(255, 255, 255, 0.8); border: 1.5px solid rgba(62, 39, 35, 0.12); border-radius: 12px; padding: 0.75rem 1rem; margin-bottom: 1rem; outline: none; transition: border-color 0.3s ease; }
-    .form-input:focus { border-color: #B89A00; }
-    .purpose-card { border: 2px solid rgba(62, 39, 35, 0.1); border-radius: 14px; padding: 1rem; cursor: pointer; text-align: center; transition: all 0.3s ease; }
-    .purpose-card.selected { border-color: #B89A00; background: rgba(255, 215, 0, 0.08); }
     #lightbox { display: none; position: fixed; inset: 0; background: rgba(44, 26, 23, 0.95); z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
     #lightbox.active { display: flex; }
   </style>
 </head>
 <body>
+
+<div id="toast">✓ Pesan berhasil dikirim!</div>
 
 <nav id="navbar" class="py-4 px-4 md:px-8">
   <div class="max-w-6xl mx-auto flex items-center justify-between">
@@ -138,7 +132,6 @@
     
     <div data-aos="fade-left" class="relative flex justify-center">
       <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80" alt="Kopi Premium Singaraja" class="w-full max-w-md rounded-3xl shadow-2xl object-cover h-[500px]" />
-      
       <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
         <div class="w-12 h-12 bg-cream-dark rounded-full flex items-center justify-center text-2xl">🏆</div>
         <div>
@@ -157,31 +150,26 @@
       <h2 class="font-playfair text-3xl md:text-4xl font-bold text-coffee-700">Pengalaman <em>Berbeda</em></h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      
       <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
         <div class="feature-icon bg-cream-dark text-coffee-600">☕</div>
         <h3 class="font-playfair text-lg font-bold text-coffee-700 mb-2">Specialty Coffee</h3>
         <p class="font-inter text-sm text-coffee-600">Biji kopi pilihan single origin Bali, diseduh oleh barista bersertifikat.</p>
       </div>
-
       <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
         <div class="feature-icon bg-cream-dark text-coffee-600">🛋️</div>
         <h3 class="font-playfair text-lg font-bold text-coffee-700 mb-2">Ruang Premium</h3>
         <p class="font-inter text-sm text-coffee-600">Interior dirancang khusus. Tersedia area indoor tenang dan outdoor estetik.</p>
       </div>
-
       <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
         <div class="feature-icon bg-cream-dark text-coffee-600">🎯</div>
         <h3 class="font-playfair text-lg font-bold text-coffee-700 mb-2">Event Space</h3>
         <p class="font-inter text-sm text-coffee-600">Meeting, workshop, atau gathering — kami siap fasilitasi acara Anda.</p>
       </div>
-
       <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
         <div class="feature-icon bg-cream-dark text-coffee-600">⚡</div>
         <h3 class="font-playfair text-lg font-bold text-coffee-700 mb-2">WiFi Cepat</h3>
         <p class="font-inter text-sm text-coffee-600">Internet stabil dan kencang. Cocok untuk nugas, WFC, dan digital nomad.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -192,10 +180,8 @@
       <div class="gold-divider mb-4"></div>
       <h2 class="font-playfair text-3xl font-bold text-coffee-700">Signature <em>Drinks</em></h2>
     </div>
-
     <div class="swiper menuSwiper pb-12" data-aos="fade-up">
       <div class="swiper-wrapper">
-        
         <div class="swiper-slide">
           <div class="menu-card">
             <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="Latte" class="w-full h-48 object-cover">
@@ -208,7 +194,6 @@
             </div>
           </div>
         </div>
-
         <div class="swiper-slide">
           <div class="menu-card">
             <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=400&q=80" alt="Cold Brew" class="w-full h-48 object-cover">
@@ -217,11 +202,10 @@
                 <h3 class="font-playfair font-bold text-coffee-700 text-lg">Social Cold Brew</h3>
                 <span class="bg-coffee-800 text-gold-300 text-xs font-bold px-3 py-1 rounded-full">Rp 35K</span>
               </div>
-              <p class="text-sm text-coffee-500">Diseduh selama 18 jam penuh menghasilkan rasa kopi yang halus dan menyegarkan.</p>
+              <p class="text-sm text-coffee-500">Diseduh 18 jam penuh menghasilkan rasa kopi yang halus dan menyegarkan.</p>
             </div>
           </div>
         </div>
-
         <div class="swiper-slide">
           <div class="menu-card">
             <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=400&q=80" alt="Matcha" class="w-full h-48 object-cover">
@@ -230,11 +214,10 @@
                 <h3 class="font-playfair font-bold text-coffee-700 text-lg">Matcha Cascara</h3>
                 <span class="bg-coffee-800 text-gold-300 text-xs font-bold px-3 py-1 rounded-full">Rp 42K</span>
               </div>
-              <p class="text-sm text-coffee-500">Matcha Kyoto grade A dipadukan dengan kesegaran ekstrak kulit kopi (cascara).</p>
+              <p class="text-sm text-coffee-500">Matcha Kyoto grade A dipadukan kesegaran ekstrak kulit kopi (cascara).</p>
             </div>
           </div>
         </div>
-
       </div>
       <div class="swiper-pagination mt-4"></div>
     </div>
@@ -246,16 +229,13 @@
     <div class="text-center mb-10" data-aos="fade-up">
       <h2 class="font-playfair text-3xl font-bold text-coffee-700">Menu Lengkap</h2>
     </div>
-
     <div class="flex flex-wrap gap-2 justify-center mb-8" data-aos="fade-up">
       <button class="filter-btn active" data-cat="all">Semua</button>
       <button class="filter-btn" data-cat="coffee">☕ Coffee</button>
       <button class="filter-btn" data-cat="noncoffee">🍵 Non-Coffee</button>
       <button class="filter-btn" data-cat="food">🥐 Food</button>
     </div>
-
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="full-menu" data-aos="fade-up">
-      
       <div class="menu-grid-item" data-cat="coffee">
         <div class="text-3xl">☕</div>
         <div class="flex-1">
@@ -263,7 +243,6 @@
           <p class="text-xs text-coffee-500 mt-1">Double shot espresso dengan air panas.</p>
         </div>
       </div>
-
       <div class="menu-grid-item" data-cat="coffee">
         <div class="text-3xl">☕</div>
         <div class="flex-1">
@@ -271,7 +250,6 @@
           <p class="text-xs text-coffee-500 mt-1">Espresso dengan foam susu tebal.</p>
         </div>
       </div>
-
       <div class="menu-grid-item" data-cat="noncoffee">
         <div class="text-3xl">🍵</div>
         <div class="flex-1">
@@ -279,7 +257,6 @@
           <p class="text-xs text-coffee-500 mt-1">Susu manis creamy dengan ekstrak taro ungu.</p>
         </div>
       </div>
-
       <div class="menu-grid-item" data-cat="food">
         <div class="text-3xl">🥐</div>
         <div class="flex-1">
@@ -287,7 +264,6 @@
           <p class="text-xs text-coffee-500 mt-1">Dipanggang hangat setiap pagi.</p>
         </div>
       </div>
-
       <div class="menu-grid-item" data-cat="food">
         <div class="text-3xl">🍰</div>
         <div class="flex-1">
@@ -295,7 +271,6 @@
           <p class="text-xs text-coffee-500 mt-1">Dessert Italia dengan sentuhan kopi espresso.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -306,28 +281,22 @@
       <div class="gold-divider mb-4"></div>
       <h2 class="font-playfair text-3xl font-bold text-coffee-700">Jelajahi Ruang Kami</h2>
     </div>
-
     <div class="flex flex-wrap gap-2 justify-center mb-8" data-aos="fade-up">
       <button class="filter-btn active" onclick="filterGallery('all', this)">Semua Foto</button>
       <button class="filter-btn" onclick="filterGallery('indoor', this)">Indoor</button>
       <button class="filter-btn" onclick="filterGallery('outdoor', this)">Outdoor</button>
       <button class="filter-btn" onclick="filterGallery('event', this)">Event Space</button>
     </div>
-
     <div class="gallery-grid" data-aos="fade-up">
-      
       <div class="gallery-item" data-cat="indoor" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=400&q=80" alt="Indoor Space">
       </div>
-
       <div class="gallery-item" data-cat="outdoor" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1525610553991-2bede1a236e2?auto=format&fit=crop&w=400&q=80" alt="Outdoor Space">
       </div>
-
       <div class="gallery-item" data-cat="event" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=400&q=80" alt="Event Space">
       </div>
-
     </div>
   </div>
 </section>
@@ -337,58 +306,126 @@
 </div>
 
 <section id="reservation" class="py-20 px-4 md:px-8 bg-cream-dark/50">
-  <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-white" data-aos="fade-up">
-    <div class="text-center mb-8">
-      <h2 class="font-playfair text-3xl font-bold text-coffee-700">Reservasi Event Space</h2>
-      <p class="text-sm text-coffee-500 mt-2">Pesan ruang meeting/workshop eksklusif kami melalui WhatsApp.</p>
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center mb-10" data-aos="fade-up">
+      <div class="gold-divider mb-4"></div>
+      <p class="font-inter text-xs font-medium tracking-[0.2em] uppercase text-coffee-400 mb-2">Reservasi via WhatsApp</p>
+      <h2 class="font-playfair text-3xl md:text-4xl font-bold text-coffee-700">Pesan <em>Event Space</em></h2>
+      <p class="font-inter text-sm text-coffee-400 mt-3 max-w-md mx-auto">Isi formulir di bawah ini dan kami akan langsung menghubungi Anda via WhatsApp untuk konfirmasi.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input type="text" id="f-name" class="form-input" placeholder="Nama Lengkap" />
-      <input type="date" id="f-date" class="form-input" />
-      <select id="f-purpose" class="form-input md:col-span-2">
-        <option value="">Pilih Tujuan Acara...</option>
-        <option value="Meeting Kantor">Meeting Kantor / Bisnis</option>
-        <option value="Workshop">Workshop / Kelas</option>
-        <option value="Ulang Tahun">Ulang Tahun / Gathering</option>
-      </select>
-      <select id="f-pax" class="form-input md:col-span-2">
-        <option value="">Pilih Kapasitas...</option>
-        <option value="10-20 Orang">10 - 20 Orang</option>
-        <option value="20-50 Orang">20 - 50 Orang</option>
-        <option value="50+ Orang">Lebih dari 50 Orang</option>
-      </select>
+    <div class="bg-white rounded-3xl p-6 md:p-10 shadow-xl" data-aos="fade-up">
+      <div class="mb-6">
+        <label class="form-label">Tujuan Event</label>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="purpose-card" onclick="selectPurpose('Meeting', this)">
+            <div class="text-2xl mb-2">💼</div>
+            <div class="font-inter text-sm font-semibold text-coffee-700">Meeting</div>
+            <div class="font-inter text-xs text-coffee-400 mt-0.5">Bisnis & Profesional</div>
+          </div>
+          <div class="purpose-card" onclick="selectPurpose('Workshop', this)">
+            <div class="text-2xl mb-2">🎓</div>
+            <div class="font-inter text-sm font-semibold text-coffee-700">Workshop</div>
+            <div class="font-inter text-xs text-coffee-400 mt-0.5">Training & Seminar</div>
+          </div>
+          <div class="purpose-card" onclick="selectPurpose('Party', this)">
+            <div class="text-2xl mb-2">🎉</div>
+            <div class="font-inter text-sm font-semibold text-coffee-700">Party</div>
+            <div class="font-inter text-xs text-coffee-400 mt-0.5">Ulang Tahun & Gathering</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="form-label" for="f-name">Nama Lengkap</label>
+          <input type="text" id="f-name" class="form-input" placeholder="Budi Santoso" />
+        </div>
+        <div>
+          <label class="form-label" for="f-phone">Nomor WhatsApp</label>
+          <input type="tel" id="f-phone" class="form-input" placeholder="08123456789" />
+        </div>
+        <div>
+          <label class="form-label" for="f-date">Tanggal Event</label>
+          <input type="date" id="f-date" class="form-input" />
+        </div>
+        <div>
+          <label class="form-label" for="f-time">Waktu Mulai</label>
+          <select id="f-time" class="form-input">
+            <option value="">Pilih waktu...</option>
+            <option>10:00 - 12:00</option>
+            <option>13:00 - 15:00</option>
+            <option>15:00 - 17:00</option>
+            <option>18:00 - 20:00</option>
+            <option>20:00 - 22:00</option>
+            <option>Seharian penuh</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="f-pax">Jumlah Tamu</label>
+          <select id="f-pax" class="form-input">
+            <option value="">Pilih kapasitas...</option>
+            <option>1-20 orang</option>
+            <option>21-50 orang</option>
+            <option>51-80 orang</option>
+            <option>81-120 orang</option>
+            <option>121-150 orang</option>
+          </select>
+        </div>
+        <div>
+          <label class="form-label" for="f-catering">Catering</label>
+          <select id="f-catering" class="form-input">
+            <option value="">Pilih paket...</option>
+            <option>Coffee Break saja</option>
+            <option>Lunch Box</option>
+            <option>Full Catering</option>
+            <option>Tidak perlu catering</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label class="form-label" for="f-notes">Catatan Tambahan</label>
+        <textarea id="f-notes" class="form-input resize-none" rows="3" placeholder="Dekorasi khusus, kebutuhan teknis, atau permintaan lainnya..."></textarea>
+      </div>
+
+      <button onclick="submitReservation()" class="btn-primary w-full justify-center py-4 text-sm">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M11.93 0C5.366 0 0 5.373 0 11.946c0 2.106.549 4.09 1.508 5.815L.057 23.882l6.304-1.654a11.916 11.916 0 0 0 5.569 1.378c6.564 0 11.93-5.373 11.93-11.946C23.86 5.373 18.494 0 11.93 0zm0 21.831a9.884 9.884 0 0 1-5.042-1.374l-.362-.215-3.742.982 1-3.648-.235-.374a9.876 9.876 0 0 1-1.512-5.261c0-5.455 4.436-9.893 9.893-9.893 5.457 0 9.893 4.438 9.893 9.893s-4.436 9.89-9.893 9.89z"/>
+        </svg>
+        Kirim via WhatsApp
+      </button>
+
+      <p class="font-inter text-xs text-coffee-400 text-center mt-4">
+        Anda akan diarahkan ke WhatsApp dengan pesan yang sudah terisi otomatis.<br/>
+        Konfirmasi dalam waktu 1×24 jam.
+      </p>
     </div>
 
-    <button onclick="submitReservation()" class="btn-primary w-full justify-center py-4 mt-6 text-sm shadow-lg">
-      <span class="text-lg">💬</span> Pesan via WhatsApp
-    </button>
   </div>
 </section>
 
 <footer class="bg-coffee-900 text-cream pt-16 pb-8 px-4 md:px-8">
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-cream/20 pb-10">
-    
     <div>
       <h3 class="font-playfair font-bold text-2xl mb-4 text-gold-300">Singaraja Social</h3>
       <p class="text-sm text-cream/70 leading-relaxed mb-4">Tempat minum kopi premium dan ruang event modern di pusat kota Singaraja, Bali Utara.</p>
       <a href="https://instagram.com/singarajasocialcoffee" class="text-gold-300 hover:text-white transition">Follow Instagram Kami ➔</a>
     </div>
-
     <div>
       <h4 class="font-bold mb-4">Lokasi Kami</h4>
       <p class="text-sm text-cream/70 mb-2">📍 Jl. Ngurah Rai No. 24, Buleleng, Bali</p>
       <p class="text-sm text-cream/70 mb-2">🕒 Buka Setiap Hari: 10.00 - 22.00 WITA</p>
       <p class="text-sm text-cream/70">📞 +62 813-5330-610</p>
     </div>
-
     <div>
       <h4 class="font-bold mb-4">Google Maps</h4>
       <div class="rounded-xl overflow-hidden h-32 w-full">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.77353163772!2d115.088686!3d-8.113543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd199b48c3b49bf%3A0x264667dccd2dfa14!2sJl.%20Ngurah%20Rai%20No.24%2C%20Kendran%2C%20Kec.%20Buleleng%2C%20Kabupaten%20Buleleng%2C%20Bali%2081113!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
-
   </div>
   <div class="max-w-6xl mx-auto text-center mt-8 text-xs text-cream/40">
     © 2026 Singaraja Social Coffee. Crafted by Gede Sugiartawan.
@@ -407,32 +444,25 @@
     breakpoints: { 640: { slidesPerView: 2.2 }, 1024: { slidesPerView: 3 } }
   });
 
-  // NAVBAR SCROLL (Ganti warna saat discroll)
+  // NAVBAR SCROLL
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // FILTER MENU YANG SMOOTH (Jawaban dari komplain kaku)
+  // FILTER MENU YANG SMOOTH
   document.querySelectorAll('[data-cat]').forEach(btn => {
     if (btn.closest('#full-menu') === null && btn.closest('#gallery') === null) {
       btn.addEventListener('click', function () {
         const cat = this.dataset.cat;
-        
-        // Aktifin tombol
         this.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
-
         const allItems = document.querySelectorAll('.menu-grid-item');
-        
-        // Kasih efek hilang dulu
         allItems.forEach(item => item.classList.add('fade-out'));
-
-        // Tunggu bentar, baru ubah display dan munculin lagi
         setTimeout(() => {
           allItems.forEach(item => {
             if (cat === 'all' || item.dataset.cat === cat) {
               item.style.display = 'flex';
-              void item.offsetWidth; // Trigger
+              void item.offsetWidth;
               item.classList.remove('fade-out');
             } else {
               item.style.display = 'none';
@@ -447,40 +477,64 @@
   function filterGallery(cat, btn) {
     btn.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     document.querySelectorAll('.gallery-item').forEach(item => {
       item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
     });
   }
 
-  // LIGHTBOX GALLERY (Pop-up Gambar)
+  // LIGHTBOX GALLERY
   function openLightbox(galleryItem) {
     const imgSrc = galleryItem.querySelector('img').src;
     document.getElementById('lightbox-img').src = imgSrc;
     document.getElementById('lightbox').classList.add('active');
   }
-
   function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
   }
 
-  // WHATSAPP FORM
+  // JAVASCRIPT KHUSUS FORM RESERVASI
+  let selectedPurpose = '';
+  function selectPurpose(purpose, card) {
+    selectedPurpose = purpose;
+    document.querySelectorAll('.purpose-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
   function submitReservation() {
-    const name = document.getElementById('f-name').value;
-    const date = document.getElementById('f-date').value;
-    const purpose = document.getElementById('f-purpose').value;
-    const pax = document.getElementById('f-pax').value;
+    const name     = document.getElementById('f-name').value.trim();
+    const phone    = document.getElementById('f-phone').value.trim();
+    const date     = document.getElementById('f-date').value;
+    const time     = document.getElementById('f-time').value;
+    const pax      = document.getElementById('f-pax').value;
+    const catering = document.getElementById('f-catering').value;
+    const notes    = document.getElementById('f-notes').value.trim();
 
-    if (!name || !date || !purpose || !pax) {
-      alert("Mohon lengkapi semua data ya!");
-      return;
-    }
+    // Validation
+    if (!name) { alert('Mohon isi nama lengkap Anda.'); return; }
+    if (!phone) { alert('Mohon isi nomor WhatsApp Anda.'); return; }
+    if (!selectedPurpose) { alert('Mohon pilih tujuan event terlebih dahulu.'); return; }
+    if (!date) { alert('Mohon pilih tanggal event.'); return; }
+    if (!time) { alert('Mohon pilih waktu event.'); return; }
+    if (!pax) { alert('Mohon pilih jumlah tamu.'); return; }
 
-    const text = `Halo Singaraja Social Coffee! 👋\n\nSaya ingin reservasi Event Space:\n👤 Nama: ${name}\n📅 Tanggal: ${date}\n🎯 Acara: ${purpose}\n👥 Jumlah Tamu: ${pax}\n\nMohon info ketersediaannya ya. Terima kasih!`;
-    
-    // Nomor WA Pemilik Kafe
-    const phone = "628135330610"; 
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+    const dateObj = new Date(date);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = dateObj.toLocaleDateString('id-ID', options);
+
+    const message = `Halo Singaraja Social Coffee! 👋\n\nSaya ingin melakukan reservasi Event Space:\n\n━━━━━━━━━━━━━━━━━━━\n📋 *DETAIL RESERVASI*\n━━━━━━━━━━━━━━━━━━━\n👤 *Nama:* ${name}\n📱 *No. WA:* ${phone}\n🎯 *Tujuan Event:* ${selectedPurpose}\n📅 *Tanggal:* ${formattedDate}\n🕐 *Waktu:* ${time}\n👥 *Jumlah Tamu:* ${pax}\n🍽️ *Catering:* ${catering || 'Belum ditentukan'}\n${notes ? `📝 *Catatan:* ${notes}` : ''}\n━━━━━━━━━━━━━━━━━━━\n\nMohon info ketersediaan dan harga. Terima kasih! 🙏`;
+
+    const ownerPhone = '628135330610';
+    const waURL = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(message)}`;
+
+    window.open(waURL, '_blank');
+    showToast('✓ Diarahkan ke WhatsApp...');
   }
 </script>
 
