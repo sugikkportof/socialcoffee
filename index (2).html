@@ -1,0 +1,2308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Singaraja Social Coffee — Premium coffee shop & event space di Singaraja, Bali. Nikmati specialty coffee, ruang kreatif, dan pengalaman sosial yang tak terlupakan." />
+  <meta name="keywords" content="coffee shop singaraja, kafe bali, event space singaraja, specialty coffee bali, singaraja social coffee" />
+  <title>Singaraja Social Coffee — Premium Coffee & Event Space, Singaraja Bali</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Scroll Animation -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Swiper.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FDF5E6',
+            'cream-dark': '#F5E6C8',
+            'cream-deeper': '#EDD9A3',
+            coffee: {
+              50:  '#FDF5E6',
+              100: '#F5E6C8',
+              200: '#EDD9A3',
+              300: '#C8965A',
+              400: '#A0714A',
+              500: '#7A4F35',
+              600: '#5C3520',
+              700: '#3E2723',
+              800: '#2C1A17',
+              900: '#1A0F0D',
+            },
+            gold: {
+              100: '#FFF3CC',
+              200: '#FFE680',
+              300: '#FFD700',
+              400: '#E6C200',
+              500: '#B89A00',
+            }
+          },
+          fontFamily: {
+            playfair: ['"Playfair Display"', 'serif'],
+            inter: ['Inter', 'sans-serif'],
+            cormorant: ['"Cormorant Garamond"', 'serif'],
+          },
+          backgroundImage: {
+            'grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E\")",
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* =============================================
+       BASE & RESET
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: #FDF5E6;
+      color: #3E2723;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay for warmth */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.6;
+    }
+
+    /* =============================================
+       NAVBAR GLASSMORPHISM
+    ============================================= */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #navbar.scrolled {
+      background: rgba(253, 245, 230, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 1px 0 rgba(62, 39, 35, 0.08), 0 4px 24px rgba(62, 39, 35, 0.06);
+    }
+
+    .nav-link {
+      position: relative;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.8125rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #3E2723;
+      text-decoration: none;
+      padding: 0.25rem 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, #B89A00, #FFD700);
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-link:hover { color: #B89A00; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* =============================================
+       HERO SECTION
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 20% 50%, #EDD9A3 0%, #FDF5E6 40%, #F5E6C8 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Decorative circles */
+    .hero-circle-1 {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 150, 90, 0.12) 0%, transparent 70%);
+      top: -200px; right: -100px;
+      pointer-events: none;
+    }
+
+    .hero-circle-2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184, 154, 0, 0.08) 0%, transparent 70%);
+      bottom: -100px; left: -50px;
+      pointer-events: none;
+    }
+
+    /* Grand Opening Badge */
+    .badge-grand-opening {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #3E2723, #5C3520);
+      color: #FFD700;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 0 4px rgba(184, 154, 0, 0.1);
+      animation: badgePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(184, 154, 0, 0.1); }
+      50% { box-shadow: 0 0 0 8px rgba(184, 154, 0, 0.05); }
+    }
+
+    /* Discount badge */
+    .badge-discount {
+      position: absolute;
+      top: -16px; right: -16px;
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, #FFD700, #B89A00);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(184, 154, 0, 0.4);
+      animation: rotate-badge 8s linear infinite;
+      z-index: 10;
+    }
+
+    @keyframes rotate-badge {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.05); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    /* Floating coffee beans */
+    .coffee-bean {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: 0.15;
+      animation: float-bean linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes float-bean {
+      0%   { transform: translateY(0px) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.15; }
+      90%  { opacity: 0.15; }
+      100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Steam animation */
+    .steam-container {
+      position: absolute;
+      bottom: 10px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px;
+    }
+
+    .steam-line {
+      width: 2px;
+      background: linear-gradient(to top, rgba(62,39,35,0.3), transparent);
+      border-radius: 4px;
+      animation: steam 2.5s ease-in-out infinite;
+    }
+
+    .steam-line:nth-child(1) { height: 20px; animation-delay: 0s; }
+    .steam-line:nth-child(2) { height: 28px; animation-delay: 0.4s; }
+    .steam-line:nth-child(3) { height: 20px; animation-delay: 0.8s; }
+
+    @keyframes steam {
+      0%, 100% { opacity: 0; transform: translateY(0) scaleX(1); }
+      30% { opacity: 1; transform: translateY(-8px) scaleX(1.3); }
+      60% { opacity: 0.5; transform: translateY(-16px) scaleX(0.8); }
+    }
+
+    /* Hero card */
+    .hero-card {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 24px;
+      box-shadow: 
+        0 8px 32px rgba(62, 39, 35, 0.08),
+        0 1px 0 rgba(255, 255, 255, 0.9) inset;
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    /* =============================================
+       SECTION CARD STYLE
+    ============================================= */
+    .section-card {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(62, 39, 35, 0.06);
+    }
+
+    /* Gold divider */
+    .gold-divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, #B89A00, #FFD700, #B89A00);
+      border-radius: 2px;
+      margin: 0 auto;
+    }
+
+    /* =============================================
+       SWIPER / MENU SLIDER
+    ============================================= */
+    .menu-card {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(62, 39, 35, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(62, 39, 35, 0.14);
+    }
+
+    .menu-card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* SVG placeholder illustration colors */
+    .swiper-slide { height: auto; }
+
+    .price-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #3E2723, #5C3520);
+      color: #FFD700;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.65rem;
+      border-radius: 100px;
+    }
+
+    /* Swiper custom pagination */
+    .swiper-pagination-bullet {
+      background: #C8965A !important;
+      opacity: 0.4 !important;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #B89A00 !important;
+      opacity: 1 !important;
+      width: 20px !important;
+      border-radius: 4px !important;
+    }
+
+    /* =============================================
+       MENU GRID
+    ============================================= */
+    .menu-grid-item {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 0 2px 12px rgba(62, 39, 35, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .menu-grid-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(62, 39, 35, 0.1);
+    }
+
+    .menu-icon-box {
+      width: 52px; height: 52px;
+      min-width: 52px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, #EDD9A3, #F5E6C8);
+    }
+
+    /* Hidden menu items animation */
+    .menu-hidden-items {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .menu-hidden-items.expanded {
+      max-height: 2000px;
+    }
+
+    /* =============================================
+       GALLERY
+    ============================================= */
+    .filter-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      border: 1.5px solid rgba(62, 39, 35, 0.2);
+      background: transparent;
+      color: #5C3520;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #3E2723;
+      border-color: #3E2723;
+      color: #FFD700;
+    }
+
+    .gallery-grid {
+      columns: 3;
+      column-gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid { columns: 2; }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid { columns: 1; }
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item svg,
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .gallery-item:hover svg,
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(62,39,35,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-item.hidden { display: none; }
+
+    /* =============================================
+       RESERVATION FORM
+    ============================================= */
+    .form-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1.5px solid rgba(62, 39, 35, 0.12);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: #3E2723;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: #B89A00;
+      box-shadow: 0 0 0 3px rgba(184, 154, 0, 0.1);
+    }
+
+    .form-input::placeholder { color: rgba(62, 39, 35, 0.4); }
+
+    select.form-input { appearance: none; cursor: pointer; }
+
+    .form-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5C3520;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .purpose-card {
+      border: 2px solid rgba(62, 39, 35, 0.1);
+      border-radius: 14px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .purpose-card:hover {
+      border-color: #B89A00;
+      background: rgba(255, 215, 0, 0.05);
+    }
+
+    .purpose-card.selected {
+      border-color: #B89A00;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(184, 154, 0, 0.05));
+      box-shadow: 0 0 0 4px rgba(184, 154, 0, 0.1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3E2723, #5C3520);
+      color: #FFD700;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(62, 39, 35, 0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(62, 39, 35, 0.3);
+      background: linear-gradient(135deg, #5C3520, #7A4F35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #3E2723;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.8125rem;
+      letter-spacing: 0.06em;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      border: 1.5px solid rgba(62, 39, 35, 0.25);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: #3E2723;
+      background: rgba(62, 39, 35, 0.04);
+    }
+
+    /* =============================================
+       WHY US FEATURE CARDS
+    ============================================= */
+    .feature-card {
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(62, 39, 35, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(62, 39, 35, 0.1);
+    }
+
+    .feature-icon {
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    footer {
+      background: linear-gradient(135deg, #2C1A17, #3E2723);
+      color: rgba(253, 245, 230, 0.9);
+    }
+
+    .footer-link {
+      color: rgba(253, 245, 230, 0.6);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover { color: #FFD700; }
+
+    /* =============================================
+       MOBILE MENU
+    ============================================= */
+    #mobile-menu {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    #mobile-menu.open {
+      max-height: 400px;
+    }
+
+    /* =============================================
+       SCROLL PROGRESS BAR
+    ============================================= */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #B89A00, #FFD700);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* =============================================
+       MAP EMBED
+    ============================================= */
+    .map-container {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(62, 39, 35, 0.12);
+    }
+
+    /* =============================================
+       LIGHTBOX
+    ============================================= */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(44, 26, 23, 0.95);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(12px);
+    }
+
+    #lightbox.active { display: flex; }
+
+    /* =============================================
+       TOAST
+    ============================================= */
+    #toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #3E2723;
+      color: #FFD700;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      z-index: 10000;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(62, 39, 35, 0.3);
+    }
+
+    #toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* =============================================
+       INSTAGRAM CTA CARD
+    ============================================= */
+    .ig-card {
+      background: linear-gradient(135deg, #3E2723 0%, #5C3520 50%, #7A4F35 100%);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ig-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(255, 215, 0, 0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Animated coffee bean floating elements in hero */
+    @keyframes floatUp {
+      0%   { transform: translateY(20px) rotate(0deg); opacity: 0; }
+      20%  { opacity: 0.2; }
+      80%  { opacity: 0.2; }
+      100% { transform: translateY(-80px) rotate(270deg); opacity: 0; }
+    }
+
+    .float-element {
+      position: absolute;
+      font-size: 1.5rem;
+      animation: floatUp 6s ease-in-out infinite;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Review stars */
+    .star { color: #FFD700; font-size: 1rem; }
+
+    /* Ensure AOS works on all elements */
+    [data-aos] { pointer-events: none; }
+    [data-aos].aos-animate { pointer-events: auto; }
+  </style>
+</head>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Toast Notification -->
+<div id="toast">✓ Pesan berhasil dikirim!</div>
+
+<!-- ============================================================
+     STICKY NAVBAR (Glassmorphism)
+============================================================ -->
+<nav id="navbar" class="py-4 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-3 group">
+      <!-- SVG Logo Mark -->
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="18" fill="#3E2723"/>
+        <ellipse cx="18" cy="21" rx="9" ry="6" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+        <path d="M14 15 Q16 11 18 15 Q20 11 22 15" stroke="#FFD700" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <ellipse cx="18" cy="21" rx="4.5" ry="3" fill="#FFD700" opacity="0.3"/>
+      </svg>
+      <div>
+        <div class="font-playfair font-700 text-coffee-700 text-base leading-tight tracking-wide">Singaraja Social</div>
+        <div class="font-inter text-[0.6rem] font-500 tracking-[0.2em] uppercase text-coffee-400">Coffee & Event Space</div>
+      </div>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#hero" class="nav-link">Home</a>
+      <a href="#menu" class="nav-link">Menu</a>
+      <a href="#space" class="nav-link">Space</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="https://instagram.com/singarajasocialcoffee" target="_blank" rel="noopener" class="nav-link flex items-center gap-1.5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        Instagram
+      </a>
+    </div>
+
+    <!-- Reserve CTA (desktop) -->
+    <a href="#reservation" class="hidden md:inline-flex btn-primary text-xs py-2.5 px-5">
+      Reservasi Sekarang
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+      <span class="w-6 h-0.5 bg-coffee-700 rounded transition-all duration-300 hamburger-line"></span>
+      <span class="w-6 h-0.5 bg-coffee-700 rounded transition-all duration-300 hamburger-line"></span>
+      <span class="w-5 h-0.5 bg-coffee-700 rounded transition-all duration-300 hamburger-line"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden px-4 pb-2">
+    <div class="mt-4 pt-4 border-t border-coffee-200 flex flex-col gap-4">
+      <a href="#hero" class="nav-link text-sm">Home</a>
+      <a href="#menu" class="nav-link text-sm">Menu</a>
+      <a href="#space" class="nav-link text-sm">Event Space</a>
+      <a href="#gallery" class="nav-link text-sm">Gallery</a>
+      <a href="https://instagram.com/singarajasocialcoffee" target="_blank" rel="noopener" class="nav-link text-sm">Instagram</a>
+      <a href="#reservation" class="btn-primary text-center justify-center">Reservasi</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO SECTION
+============================================================ -->
+<section id="hero" class="pt-24 pb-16 px-4 md:px-8">
+  <!-- Floating decorative circles -->
+  <div class="hero-circle-1"></div>
+  <div class="hero-circle-2"></div>
+
+  <!-- Floating coffee bean elements -->
+  <span class="float-element" style="left: 8%; top: 60%; animation-delay: 0s;">☕</span>
+  <span class="float-element" style="left: 15%; top: 40%; animation-delay: 1.5s; font-size: 1rem;">✦</span>
+  <span class="float-element" style="right: 10%; top: 70%; animation-delay: 3s;">☕</span>
+  <span class="float-element" style="right: 18%; top: 50%; animation-delay: 0.8s; font-size: 1rem;">✦</span>
+  <span class="float-element" style="left: 30%; top: 80%; animation-delay: 2s; font-size: 0.9rem;">✦</span>
+
+  <div class="max-w-6xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8 items-center min-h-[80vh]">
+
+      <!-- Left: Text Content -->
+      <div data-aos="fade-right" data-aos-duration="900">
+
+        <!-- Grand Opening Badge -->
+        <div class="badge-grand-opening mb-6 w-fit">
+          <span>✦</span>
+          <span>Grand Opening — Diskon 10%</span>
+          <span>✦</span>
+        </div>
+
+        <h1 class="font-playfair text-5xl md:text-6xl lg:text-7xl font-900 text-coffee-700 leading-[1.05] mb-5">
+          Sudut<br />
+          <em class="text-coffee-400 font-playfair not-italic">Ruang</em> untuk<br />
+          Bersosialisasi
+        </h1>
+
+        <p class="font-inter text-coffee-500 text-base md:text-lg leading-relaxed mb-8 max-w-md">
+          Temukan kenyamanan sejati di jantung Singaraja. Specialty coffee pilihan, ruang yang hangat, dan atmosfer yang menginspirasi percakapan bermakna.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#menu" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            Lihat Menu
+          </a>
+          <a href="#reservation" class="btn-secondary">Pesan Tempat</a>
+        </div>
+
+        <!-- Stats strip -->
+        <div class="flex gap-8 mt-10 pt-8 border-t border-coffee-200">
+          <div>
+            <div class="font-playfair text-2xl font-700 text-coffee-700">40+</div>
+            <div class="font-inter text-xs text-coffee-400 tracking-wide uppercase mt-0.5">Menu Item</div>
+          </div>
+          <div>
+            <div class="font-playfair text-2xl font-700 text-coffee-700">150+</div>
+            <div class="font-inter text-xs text-coffee-400 tracking-wide uppercase mt-0.5">Kapasitas</div>
+          </div>
+          <div>
+            <div class="font-playfair text-2xl font-700 text-coffee-700">4.9★</div>
+            <div class="font-inter text-xs text-coffee-400 tracking-wide uppercase mt-0.5">Rating</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Hero Card with coffee illustration -->
+      <div data-aos="fade-left" data-aos-duration="900" data-aos-delay="150" class="relative flex justify-center">
+
+        <!-- Discount Badge -->
+        <div class="badge-discount" style="position:absolute; top: 20px; right: 20px; z-index: 20;">
+          <div class="font-inter text-coffee-900 font-800 text-xs leading-none">10%</div>
+          <div class="font-inter text-coffee-900 font-600 text-[0.55rem] leading-none">OFF</div>
+        </div>
+
+        <!-- Hero Glass Card -->
+        <div class="hero-card w-full max-w-md">
+          <!-- Coffee Cup Illustration (SVG) -->
+          <div class="relative flex justify-center mb-4">
+            <svg viewBox="0 0 320 260" width="100%" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background circle -->
+              <circle cx="160" cy="140" r="110" fill="#EDD9A3" opacity="0.4"/>
+              
+              <!-- Saucer -->
+              <ellipse cx="160" cy="210" rx="80" ry="12" fill="#C8965A" opacity="0.4"/>
+              <ellipse cx="160" cy="207" rx="75" ry="10" fill="#A0714A"/>
+              
+              <!-- Cup body -->
+              <path d="M95 130 L105 205 Q160 215 215 205 L225 130 Z" fill="url(#cupGrad)" rx="8"/>
+              <defs>
+                <linearGradient id="cupGrad" x1="95" y1="130" x2="225" y2="210" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#5C3520"/>
+                  <stop offset="100%" stop-color="#3E2723"/>
+                </linearGradient>
+              </defs>
+              
+              <!-- Cup rim -->
+              <ellipse cx="160" cy="130" rx="65" ry="12" fill="#7A4F35"/>
+              <ellipse cx="160" cy="128" rx="62" ry="11" fill="#5C3520"/>
+              
+              <!-- Coffee surface -->
+              <ellipse cx="160" cy="128" rx="58" ry="10" fill="#2C1A17"/>
+              
+              <!-- Latte art heart -->
+              <path d="M148 124 Q152 118 156 124 Q160 118 164 124 Q166 128 160 133 Z" fill="#C8965A" opacity="0.8"/>
+              
+              <!-- Handle -->
+              <path d="M225 150 Q250 150 250 170 Q250 190 225 190" stroke="#7A4F35" stroke-width="10" fill="none" stroke-linecap="round"/>
+              
+              <!-- Steam lines -->
+              <path d="M140 115 Q143 105 140 95 Q137 85 140 75" stroke="#C8965A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+              <path d="M160 112 Q163 100 160 88 Q157 76 160 65" stroke="#C8965A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+              <path d="M180 115 Q183 105 180 95 Q177 85 180 75" stroke="#C8965A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+              
+              <!-- Decorative stars -->
+              <text x="60" y="90" font-size="14" fill="#B89A00" opacity="0.6">✦</text>
+              <text x="245" y="100" font-size="10" fill="#B89A00" opacity="0.5">✦</text>
+              <text x="75" y="170" font-size="8" fill="#B89A00" opacity="0.4">✦</text>
+              <text x="255" y="170" font-size="12" fill="#B89A00" opacity="0.4">✦</text>
+              
+              <!-- Coffee beans decoration -->
+              <ellipse cx="70" cy="130" rx="12" ry="8" fill="#5C3520" opacity="0.3" transform="rotate(-30, 70, 130)"/>
+              <line x1="70" y1="122" x2="70" y2="138" stroke="#3E2723" stroke-width="1" opacity="0.3" transform="rotate(-30, 70, 130)"/>
+              
+              <ellipse cx="255" cy="145" rx="12" ry="8" fill="#5C3520" opacity="0.3" transform="rotate(20, 255, 145)"/>
+              <line x1="255" y1="137" x2="255" y2="153" stroke="#3E2723" stroke-width="1" opacity="0.3" transform="rotate(20, 255, 145)"/>
+            </svg>
+          </div>
+
+          <!-- Card info -->
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-playfair text-xl font-600 text-coffee-700">Signature Latte</div>
+              <div class="font-inter text-xs text-coffee-400 mt-0.5">Single Origin Arabica · Bali</div>
+            </div>
+            <div class="text-right">
+              <div class="font-playfair text-lg font-700 text-coffee-700">Rp 38.000</div>
+              <div class="font-inter text-xs text-gold-500 line-through">Rp 42.000</div>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="flex gap-2 mt-3 flex-wrap">
+            <span class="bg-cream-dark text-coffee-600 font-inter text-xs px-2.5 py-1 rounded-full">☕ Specialty</span>
+            <span class="bg-cream-dark text-coffee-600 font-inter text-xs px-2.5 py-1 rounded-full">🌿 Organic</span>
+            <span class="bg-cream-dark text-coffee-600 font-inter text-xs px-2.5 py-1 rounded-full">🏆 Award-winning</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY US - FEATURE CARDS
+============================================================ -->
+<section class="py-16 px-4 md:px-8 bg-gradient-to-b from-cream to-cream-dark">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-12" data-aos="fade-up">
+      <div class="gold-divider mb-4"></div>
+      <p class="font-inter text-xs font-500 tracking-[0.2em] uppercase text-coffee-400 mb-2">Kenapa Singaraja Social</p>
+      <h2 class="font-playfair text-3xl md:text-4xl font-700 text-coffee-700">Pengalaman <em>Berbeda</em></h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="feature-icon" style="background: linear-gradient(135deg, #EDD9A3, #C8965A20);">☕</div>
+        <h3 class="font-playfair text-lg font-600 text-coffee-700 mb-2">Specialty Coffee</h3>
+        <p class="font-inter text-sm text-coffee-500 leading-relaxed">Biji kopi pilihan single origin Bali, diseduh oleh barista bersertifikat SCA internasional.</p>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon" style="background: linear-gradient(135deg, #EDD9A3, #B89A0020);">✦</div>
+        <h3 class="font-playfair text-lg font-600 text-coffee-700 mb-2">Ruang Premium</h3>
+        <p class="font-inter text-sm text-coffee-500 leading-relaxed">Interior dirancang oleh desainer lokal terbaik. Tersedia area indoor, outdoor, dan private event room.</p>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon" style="background: linear-gradient(135deg, #EDD9A3, #5C352020);">🎯</div>
+        <h3 class="font-playfair text-lg font-600 text-coffee-700 mb-2">Event Fleksibel</h3>
+        <p class="font-inter text-sm text-coffee-500 leading-relaxed">Meeting, workshop, ulang tahun, atau gathering — kami siapkan semua dengan catering pilihan.</p>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-icon" style="background: linear-gradient(135deg, #EDD9A3, #FFD70020);">🌿</div>
+        <h3 class="font-playfair text-lg font-600 text-coffee-700 mb-2">WiFi Cepat</h3>
+        <p class="font-inter text-sm text-coffee-500 leading-relaxed">High-speed fiber 300Mbps. Cocok untuk remote work, content creator, dan digital nomad Singaraja.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SIGNATURE DRINKS SLIDER (Swiper.js)
+============================================================ -->
+<section id="menu" class="py-20 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div data-aos="fade-right">
+        <div class="gold-divider mb-4" style="margin: 0 0 1rem 0;"></div>
+        <p class="font-inter text-xs font-500 tracking-[0.2em] uppercase text-coffee-400 mb-2">Pilihan Terbaik Kami</p>
+        <h2 class="font-playfair text-3xl md:text-4xl font-700 text-coffee-700">Signature <em>Drinks</em></h2>
+      </div>
+      <p class="font-inter text-sm text-coffee-400 max-w-xs" data-aos="fade-left">Diracik khusus oleh head barista kami dengan teknik specialty brewing terkini.</p>
+    </div>
+
+    <!-- Swiper Slider -->
+    <div class="swiper menuSwiper pb-12" data-aos="fade-up">
+      <div class="swiper-wrapper">
+
+        <!-- Card 1 -->
+        <div class="swiper-slide">
+          <div class="menu-card">
+            <div class="relative overflow-hidden" style="aspect-ratio:4/3;">
+              <svg viewBox="0 0 300 225" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect width="300" height="225" fill="#EDD9A3"/>
+                <circle cx="150" cy="112" r="80" fill="#C8965A" opacity="0.3"/>
+                <ellipse cx="150" cy="145" rx="50" ry="8" fill="#A0714A" opacity="0.3"/>
+                <rect x="110" y="95" width="80" height="70" rx="6" fill="#5C3520"/>
+                <ellipse cx="150" cy="95" rx="40" ry="8" fill="#7A4F35"/>
+                <ellipse cx="150" cy="93" rx="37" ry="7" fill="#3E2723"/>
+                <path d="M136 89 Q140 83 144 89 Q148 83 152 89 Q156 83 160 89" stroke="#C8965A" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+                <ellipse cx="150" cy="93" rx="22" ry="4" fill="#C8965A" opacity="0.4"/>
+                <path d="M190 110 Q205 110 205 122 Q205 134 190 134" stroke="#7A4F35" stroke-width="7" fill="none" stroke-linecap="round"/>
+                <text x="128" y="145" font-size="9" fill="#FFD700" opacity="0.8" font-family="serif">LATTE</text>
+                <path d="M135 70 Q137 63 135 55" stroke="#C8965A" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+                <path d="M150 67 Q152 58 150 50" stroke="#C8965A" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+                <path d="M165 70 Q167 63 165 55" stroke="#C8965A" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="p-4">
+              <div class="flex items-start justify-between mb-2">
+                <div>
+                  <h3 class="font-playfair font-600 text-coffee-700 text-lg">Singaraja Latte</h3>
+                  <p class="font-inter text-xs text-coffee-400 mt-0.5">Arabica Kintamani · Double Shot</p>
+                </div>
+                <span class="price-tag">Rp 38.000</span>
+              </div>
+              <p class="font-inter text-xs text-coffee-500 leading-relaxed">Perpaduan sempurna espresso kuat dengan susu oat lokal yang creamy dan sedikit karamel alami.</p>
+              <div class="flex gap-1 mt-3">
+                <span class="star">★★★★★</span>
+                <span class="font-inter text-xs text-coffee-400 ml-1">(128 ulasan)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="swiper-slide">
+          <div class="menu-card">
+            <div class="relative overflow-hidden" style="aspect-ratio:4/3;">
+              <svg viewBox="0 0 300 225" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect width="300" height="225" fill="#F5E6C8"/>
+                <circle cx="150" cy="112" r="80" fill="#A0714A" opacity="0.2"/>
+                <rect x="115" y="80" width="70" height="100" rx="35" fill="#5C3520"/>
+                <rect x="120" y="85" width="60" height="90" rx="30" fill="#3E2723"/>
+                <!-- ice cubes -->
+                <rect x="130" y="95" width="18" height="18" rx="4" fill="#B3D9F0" opacity="0.6"/>
+                <rect x="152" y="100" width="16" height="16" rx="4" fill="#B3D9F0" opacity="0.5"/>
+                <rect x="135" y="117" width="14" height="14" rx="3" fill="#B3D9F0" opacity="0.55"/>
+                <!-- coffee liquid -->
+                <rect x="120" y="130" width="60" height="45" rx="0 0 30 30" fill="#7A4F35" opacity="0.5"/>
+                <!-- straw -->
+                <rect x="163" y="70" width="5" height="80" rx="2.5" fill="#FFD700" opacity="0.8"/>
+                <!-- lid -->
+                <ellipse cx="150" cy="82" rx="37" ry="7" fill="#7A4F35"/>
+                <ellipse cx="150" cy="80" rx="35" ry="6" fill="#5C3520"/>
+              </svg>
+            </div>
+            <div class="p-4">
+              <div class="flex items-start justify-between mb-2">
+                <div>
+                  <h3 class="font-playfair font-600 text-coffee-700 text-lg">Cold Brew Bali</h3>
+                  <p class="font-inter text-xs text-coffee-400 mt-0.5">Robusta Singaraja · 18hr Brew</p>
+                </div>
+                <span class="price-tag">Rp 35.000</span>
+              </div>
+              <p class="font-inter text-xs text-coffee-500 leading-relaxed">Cold brew 18 jam dari kopi robusta pilihan petani lokal Singaraja. Segar, bold, dan zero acidity.</p>
+              <div class="flex gap-1 mt-3">
+                <span class="star">★★★★★</span>
+                <span class="font-inter text-xs text-coffee-400 ml-1">(96 ulasan)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="swiper-slide">
+          <div class="menu-card">
+            <div class="relative overflow-hidden" style="aspect-ratio:4/3;">
+              <svg viewBox="0 0 300 225" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect width="300" height="225" fill="#EDD9A3"/>
+                <circle cx="150" cy="112" r="75" fill="#C8965A" opacity="0.25"/>
+                <!-- matcha glass -->
+                <rect x="105" y="85" width="90" height="100" rx="10" fill="#6B8E6B" opacity="0.3"/>
+                <rect x="108" y="88" width="84" height="94" rx="8" fill="#5C3520" opacity="0.15"/>
+                <!-- matcha layers -->
+                <rect x="108" y="88" width="84" height="35" rx="8 8 0 0" fill="#8BC34A" opacity="0.6"/>
+                <rect x="108" y="123" width="84" height="25" fill="#C8965A" opacity="0.5"/>
+                <rect x="108" y="148" width="84" height="34" rx="0 0 8 8" fill="#5C3520" opacity="0.5"/>
+                <!-- foam top -->
+                <ellipse cx="150" cy="92" rx="44" ry="10" fill="white" opacity="0.7"/>
+                <!-- matcha art swirl -->
+                <path d="M135 89 Q150 82 165 89" stroke="#6B8E6B" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.8"/>
+                <!-- straw -->
+                <rect x="170" y="75" width="5" height="85" rx="2.5" fill="#FFD700" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="p-4">
+              <div class="flex items-start justify-between mb-2">
+                <div>
+                  <h3 class="font-playfair font-600 text-coffee-700 text-lg">Matcha Cascara</h3>
+                  <p class="font-inter text-xs text-coffee-400 mt-0.5">Uji Matcha · Cascara Layer</p>
+                </div>
+                <span class="price-tag">Rp 42.000</span>
+              </div>
+              <p class="font-inter text-xs text-coffee-500 leading-relaxed">Signature drink kami — matcha premium grade A dipadukan cascara coffee cherry yang floral dan elegan.</p>
+              <div class="flex gap-1 mt-3">
+                <span class="star">★★★★★</span>
+                <span class="font-inter text-xs text-coffee-400 ml-1">(204 ulasan)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="swiper-slide">
+          <div class="menu-card">
+            <div class="relative overflow-hidden" style="aspect-ratio:4/3;">
+              <svg viewBox="0 0 300 225" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect width="300" height="225" fill="#FDF5E6"/>
+                <circle cx="150" cy="112" r="80" fill="#E8D5B0" opacity="0.4"/>
+                <!-- pour over vessel -->
+                <path d="M115 80 L185 80 L175 185 Q150 195 125 185 Z" fill="#3E2723" opacity="0.8"/>
+                <path d="M118 83 L182 83 L173 182 Q150 192 127 182 Z" fill="#2C1A17"/>
+                <!-- coffee in vessel -->
+                <path d="M130 140 L170 140 L166 182 Q150 192 134 182 Z" fill="#7A4F35" opacity="0.6"/>
+                <!-- filter top -->
+                <path d="M112 75 Q150 65 188 75 L185 82 Q150 72 115 82 Z" fill="#C8965A"/>
+                <!-- dripper cone -->
+                <path d="M130 60 L170 60 L175 80 L125 80 Z" fill="#5C3520"/>
+                <path d="M133 63 L167 63 L172 78 L128 78 Z" fill="#7A4F35"/>
+                <!-- drip drops -->
+                <ellipse cx="150" cy="56" rx="3" ry="4" fill="#C8965A" opacity="0.7"/>
+                <ellipse cx="150" cy="50" rx="2" ry="3" fill="#C8965A" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="p-4">
+              <div class="flex items-start justify-between mb-2">
+                <div>
+                  <h3 class="font-playfair font-600 text-coffee-700 text-lg">Pour Over V60</h3>
+                  <p class="font-inter text-xs text-coffee-400 mt-0.5">Single Origin · Light Roast</p>
+                </div>
+                <span class="price-tag">Rp 45.000</span>
+              </div>
+              <p class="font-inter text-xs text-coffee-500 leading-relaxed">Diseduh manual dengan teknik pour over V60 untuk mengekstrak semua kompleksitas rasa biji kopi.</p>
+              <div class="flex gap-1 mt-3">
+                <span class="star">★★★★☆</span>
+                <span class="font-inter text-xs text-coffee-400 ml-1">(67 ulasan)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="swiper-slide">
+          <div class="menu-card">
+            <div class="relative overflow-hidden" style="aspect-ratio:4/3;">
+              <svg viewBox="0 0 300 225" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect width="300" height="225" fill="#F5E6C8"/>
+                <circle cx="150" cy="120" r="75" fill="#A0714A" opacity="0.2"/>
+                <!-- martini glass for espresso martini -->
+                <path d="M90 60 L210 60 L165 130 L165 170 L185 170 L185 180 L115 180 L115 170 L135 170 L135 130 Z" fill="#5C3520" opacity="0.1"/>
+                <path d="M95 65 L205 65 L162 128 L162 168 L182 168 L182 175 L118 175 L118 168 L138 168 L138 128 Z" fill="#3E2723" opacity="0.7"/>
+                <!-- coffee liquid in glass -->
+                <path d="M110 75 L190 75 L170 120 L130 120 Z" fill="#2C1A17"/>
+                <!-- foam -->
+                <path d="M110 75 L190 75 Q180 68 150 66 Q120 68 110 75 Z" fill="rgba(200,150,90,0.6)"/>
+                <!-- coffee beans on top -->
+                <ellipse cx="144" cy="71" rx="6" ry="4" fill="#3E2723" transform="rotate(-30, 144, 71)"/>
+                <ellipse cx="156" cy="71" rx="6" ry="4" fill="#3E2723" transform="rotate(30, 156, 71)"/>
+                <!-- stem -->
+                <rect x="148" y="128" width="4" height="42" fill="#5C3520" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="p-4">
+              <div class="flex items-start justify-between mb-2">
+                <div>
+                  <h3 class="font-playfair font-600 text-coffee-700 text-lg">Espresso Tonic</h3>
+                  <p class="font-inter text-xs text-coffee-400 mt-0.5">Double Shot · Tonic Water</p>
+                </div>
+                <span class="price-tag">Rp 40.000</span>
+              </div>
+              <p class="font-inter text-xs text-coffee-500 leading-relaxed">Espresso double shot dituangkan perlahan di atas tonic water dingin — citrus segar bertemu kepahitan kopi.</p>
+              <div class="flex gap-1 mt-3">
+                <span class="star">★★★★★</span>
+                <span class="font-inter text-xs text-coffee-400 ml-1">(152 ulasan)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Swiper Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FULL MENU GRID (Expandable)
+============================================================ -->
+<section class="py-20 px-4 md:px-8 bg-gradient-to-b from-cream to-cream-dark">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-12" data-aos="fade-up">
+      <div class="gold-divider mb-4"></div>
+      <p class="font-inter text-xs font-500 tracking-[0.2em] uppercase text-coffee-400 mb-2">Semua Tersedia</p>
+      <h2 class="font-playfair text-3xl md:text-4xl font-700 text-coffee-700">Menu <em>Lengkap</em></h2>
+    </div>
+
+    <!-- Menu Category Tabs -->
+    <div class="flex flex-wrap gap-2 justify-center mb-8" data-aos="fade-up">
+      <button class="filter-btn active" data-cat="all">Semua</button>
+      <button class="filter-btn" data-cat="coffee">☕ Coffee</button>
+      <button class="filter-btn" data-cat="noncoffee">🍵 Non-Coffee</button>
+      <button class="filter-btn" data-cat="food">🍴 Food</button>
+    </div>
+
+    <!-- Visible Menu Items (Always shown) -->
+    <div id="menu-visible" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-aos="fade-up">
+
+      <div class="menu-grid-item" data-cat="coffee">
+        <div class="menu-icon-box">☕</div>
+        <div class="flex-1">
+          <div class="flex justify-between items-center">
+            <h4 class="font-playfair font-600 text-coffee-700">Americano</h4>
+            <span class="font-inter text-sm font-600 text-coffee-600">Rp 28.000</span>
+          </div>
+          <p class="font-inter text-xs text-coffee-400 mt-1">Espresso + hot water. Pure & bold.</p>
+        </div>
+      </div>
+
+      <div class="menu-grid-item" data-cat="coffee">
+        <div class="menu-icon-box">☕</div>
+        <div class="flex-1">
+          <div class="flex justify-between items-center">
+            <h4 class="font-playfair font-600 text-coffee-700">Cappuccino</h4>
+            <span class="font-inter text-sm font-600 text-coffee-600">Rp 34.000</span>
+          </div>
+          <p class="font-inter text-xs text-coffee-400 mt-1">1/3 espresso · 1/3 steamed · 1/3 foam.</p>
+        </div>
+      </div>
+
+      <div class="menu-grid-item" data-cat="coffee">
+        <div class="menu-icon-box">☕</div>
+        <div class="flex-1">
+          <div class="flex justify-between items-center">
+            <h4 class="font-playfair font-600 text-coffee-700">Flat White</h4>
+            <span class="font-inter text-sm font-600 text-coffee-600">Rp 36.000</span>
+          </div>
+          <p class="font-inter text-xs text-coffee-400 mt-1">Ristretto shots with velvety micro-foam.</p>
+        </div>
+      </div>
+
+      <div class="menu-grid-item" data-cat="noncoffee">
+        <div class="menu-icon-box">🍵</div>
+        <div class="flex-1">
+          <div class="flex justify-between items-center">
+            <h4 class="font-playfair font-600 text-coffee-700">Matcha Latte</h4>
+            <span class="font-inter text-sm font-600 text-coffee-600">Rp 38.000</span>
+          </div>
+          <p class="font-inter text-xs text-coffee-400 mt-1">Uji matcha grade A dengan oat milk lokal.</p>
+        </div>
+      </div>
+
+      <div class="menu-grid-item" data-cat="noncoffee">
+        <div class="menu-icon-box">🍵</div>
+        <div class="flex-1">
+          <div class="flex justify-between items-center">
+            <h4 class="font-playfair font-600 text-coffee-700">Taro Latte</h4>
+            <span class="font-inter text-sm font-600 text-coffee-600">Rp 36.000</span>
+          </div>
+          <p class="font-inter text-xs text-coffee-400 mt-1">Purple taro blend dengan susu segar creamy.</p>
+        </div>
+      </div>
+
+      <div class="menu-grid-item" data-cat="food">
+        <div class="menu-icon-box">🍞</div>
+        <div class="flex-1">
+          <div class="flex justify-between items-center">
+            <h4 class="font-playfair font-600 text-coffee-700">Croissant Butter</h4>
+            <span class="font-inter text-sm font-600 text-coffee-600">Rp 32.000</span>
+          </div>
+          <p class="font-inter text-xs text-coffee-400 mt-1">Freshly baked every morning by our pastry chef.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Hidden Menu Items (Toggle) -->
+    <div id="menu-hidden-items" class="menu-hidden-items">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+
+        <div class="menu-grid-item" data-cat="coffee">
+          <div class="menu-icon-box">☕</div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <h4 class="font-playfair font-600 text-coffee-700">Ristretto</h4>
+              <span class="font-inter text-sm font-600 text-coffee-600">Rp 25.000</span>
+            </div>
+            <p class="font-inter text-xs text-coffee-400 mt-1">Ultra-concentrated short pull espresso.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid-item" data-cat="coffee">
+          <div class="menu-icon-box">☕</div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <h4 class="font-playfair font-600 text-coffee-700">Macchiato</h4>
+              <span class="font-inter text-sm font-600 text-coffee-600">Rp 30.000</span>
+            </div>
+            <p class="font-inter text-xs text-coffee-400 mt-1">Espresso "stained" with a dollop of milk foam.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid-item" data-cat="coffee">
+          <div class="menu-icon-box">☕</div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <h4 class="font-playfair font-600 text-coffee-700">Affogato</h4>
+              <span class="font-inter text-sm font-600 text-coffee-600">Rp 48.000</span>
+            </div>
+            <p class="font-inter text-xs text-coffee-400 mt-1">Vanilla gelato drowned in hot espresso shot.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid-item" data-cat="noncoffee">
+          <div class="menu-icon-box">🌸</div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <h4 class="font-playfair font-600 text-coffee-700">Rose Lemonade</h4>
+              <span class="font-inter text-sm font-600 text-coffee-600">Rp 32.000</span>
+            </div>
+            <p class="font-inter text-xs text-coffee-400 mt-1">Soda segar dengan sirup bunga mawar dan lemon.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid-item" data-cat="food">
+          <div class="menu-icon-box">🥗</div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <h4 class="font-playfair font-600 text-coffee-700">Avocado Toast</h4>
+              <span class="font-inter text-sm font-600 text-coffee-600">Rp 55.000</span>
+            </div>
+            <p class="font-inter text-xs text-coffee-400 mt-1">Sourdough + avocado smash + poached egg.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid-item" data-cat="food">
+          <div class="menu-icon-box">🍰</div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <h4 class="font-playfair font-600 text-coffee-700">Tiramisu Slice</h4>
+              <span class="font-inter text-sm font-600 text-coffee-600">Rp 45.000</span>
+            </div>
+            <p class="font-inter text-xs text-coffee-400 mt-1">Klasik Italia dengan ladyfinger & mascarpone lokal.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid-item" data-cat="food">
+          <div class="menu-icon-box">🥪</div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <h4 class="font-playfair font-600 text-coffee-700">Club Sandwich</h4>
+              <span class="font-inter text-sm font-600 text-coffee-600">Rp 68.000</span>
+            </div>
+            <p class="font-inter text-xs text-coffee-400 mt-1">Triple decker dengan smoked chicken & herbs aioli.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid-item" data-cat="noncoffee">
+          <div class="menu-icon-box">🍫</div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <h4 class="font-playfair font-600 text-coffee-700">Dark Choco Latte</h4>
+              <span class="font-inter text-sm font-600 text-coffee-600">Rp 36.000</span>
+            </div>
+            <p class="font-inter text-xs text-coffee-400 mt-1">Cokelat Belgia 72% dengan steamed milk panas.</p>
+          </div>
+        </div>
+
+        <div class="menu-grid-item" data-cat="coffee">
+          <div class="menu-icon-box">☕</div>
+          <div class="flex-1">
+            <div class="flex justify-between items-center">
+              <h4 class="font-playfair font-600 text-coffee-700">Dirty Chai</h4>
+              <span class="font-inter text-sm font-600 text-coffee-600">Rp 40.000</span>
+            </div>
+            <p class="font-inter text-xs text-coffee-400 mt-1">Espresso shot dalam masala chai hangat & rempah.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- View All Button -->
+    <div class="text-center mt-8" data-aos="fade-up">
+      <button id="toggle-menu-btn" class="btn-secondary" onclick="toggleMenu()">
+        <span id="toggle-menu-text">Lihat Semua Menu</span>
+        <svg id="toggle-menu-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline ml-2 transition-transform duration-300">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     EVENT SPACE SECTION
+============================================================ -->
+<section id="space" class="py-20 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+
+      <!-- Left: Space Details -->
+      <div data-aos="fade-right">
+        <div class="gold-divider mb-4" style="margin: 0 0 1rem 0;"></div>
+        <p class="font-inter text-xs font-500 tracking-[0.2em] uppercase text-coffee-400 mb-2">Ruang Multifungsi</p>
+        <h2 class="font-playfair text-3xl md:text-4xl font-700 text-coffee-700 mb-5">Event Space <em>Premium</em></h2>
+        <p class="font-inter text-sm text-coffee-500 leading-relaxed mb-6">Ruang serbaguna dengan kapasitas hingga 150 orang. Dilengkapi audio-visual system terkini, pencahayaan mood, dan catering service pilihan.</p>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-cream-dark flex items-center justify-center flex-shrink-0 text-sm">👥</div>
+            <div>
+              <div class="font-inter text-sm font-600 text-coffee-700">Kapasitas Fleksibel</div>
+              <div class="font-inter text-xs text-coffee-400">Theater: 150 · Classroom: 80 · Round Table: 60</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-cream-dark flex items-center justify-center flex-shrink-0 text-sm">🎤</div>
+            <div>
+              <div class="font-inter text-sm font-600 text-coffee-700">AV System Lengkap</div>
+              <div class="font-inter text-xs text-coffee-400">Proyektor 4K, Sound system, LED Wall, & Lighting</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-cream-dark flex items-center justify-center flex-shrink-0 text-sm">🍽️</div>
+            <div>
+              <div class="font-inter text-sm font-600 text-coffee-700">Catering In-House</div>
+              <div class="font-inter text-xs text-coffee-400">Coffee break, lunch box, hingga gala dinner</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-cream-dark flex items-center justify-center flex-shrink-0 text-sm">🅿️</div>
+            <div>
+              <div class="font-inter text-sm font-600 text-coffee-700">Parkir Luas & Gratis</div>
+              <div class="font-inter text-xs text-coffee-400">50+ kendaraan · Valet tersedia untuk event besar</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#reservation" class="btn-primary">
+          Cek Ketersediaan Ruang
+        </a>
+      </div>
+
+      <!-- Right: Space SVG Illustration -->
+      <div data-aos="fade-left" class="relative">
+        <div class="section-card p-2 overflow-hidden">
+          <svg viewBox="0 0 480 340" width="100%" xmlns="http://www.w3.org/2000/svg">
+            <!-- Room background -->
+            <rect width="480" height="340" fill="#F5E6C8"/>
+            <!-- Floor -->
+            <rect x="0" y="240" width="480" height="100" fill="#C8965A" opacity="0.3"/>
+            <!-- Back wall pattern -->
+            <rect x="0" y="0" width="480" height="240" fill="#EDD9A3"/>
+            <!-- Wall decor lines -->
+            <line x1="0" y1="80" x2="480" y2="80" stroke="#C8965A" stroke-width="0.5" opacity="0.4"/>
+            <line x1="0" y1="160" x2="480" y2="160" stroke="#C8965A" stroke-width="0.5" opacity="0.4"/>
+            <!-- Window with light beams -->
+            <rect x="30" y="20" width="120" height="90" rx="4" fill="#B3D9F0" opacity="0.3"/>
+            <rect x="30" y="20" width="120" height="90" rx="4" fill="none" stroke="#A0714A" stroke-width="2"/>
+            <line x1="90" y1="20" x2="90" y2="110" stroke="#A0714A" stroke-width="1.5"/>
+            <line x1="30" y1="65" x2="150" y2="65" stroke="#A0714A" stroke-width="1.5"/>
+            <!-- Light rays -->
+            <path d="M90 110 L60 180 L120 180 Z" fill="#FFD700" opacity="0.1"/>
+            <!-- Tables -->
+            <rect x="60" y="190" width="80" height="50" rx="4" fill="#7A4F35"/>
+            <rect x="63" y="187" width="74" height="8" rx="3" fill="#5C3520"/>
+            <!-- Chairs at table 1 -->
+            <rect x="55" y="200" width="12" height="30" rx="3" fill="#5C3520"/>
+            <rect x="133" y="200" width="12" height="30" rx="3" fill="#5C3520"/>
+            <rect x="75" y="235" width="20" height="8" rx="3" fill="#5C3520"/>
+            <rect x="105" y="235" width="20" height="8" rx="3" fill="#5C3520"/>
+            <!-- Coffee cups on table -->
+            <circle cx="90" cy="205" r="6" fill="#3E2723"/>
+            <ellipse cx="90" cy="205" rx="5" ry="4" fill="#2C1A17"/>
+            <circle cx="110" cy="205" r="6" fill="#3E2723"/>
+            <!-- Table 2 -->
+            <rect x="200" y="175" width="100" height="65" rx="4" fill="#7A4F35"/>
+            <rect x="203" y="172" width="94" height="8" rx="3" fill="#5C3520"/>
+            <!-- Chairs at table 2 -->
+            <rect x="192" y="185" width="12" height="40" rx="3" fill="#5C3520"/>
+            <rect x="296" y="185" width="12" height="40" rx="3" fill="#5C3520"/>
+            <rect x="220" y="237" width="22" height="8" rx="3" fill="#5C3520"/>
+            <rect x="258" y="237" width="22" height="8" rx="3" fill="#5C3520"/>
+            <!-- Laptop on table -->
+            <rect x="225" y="182" width="32" height="20" rx="2" fill="#C8965A"/>
+            <rect x="226" y="183" width="30" height="18" rx="1" fill="#2C1A17"/>
+            <rect x="220" y="202" width="60" height="3" rx="1.5" fill="#A0714A"/>
+            <!-- Plants -->
+            <rect x="420" y="170" width="10" height="70" fill="#7A4F35"/>
+            <ellipse cx="425" cy="165" rx="25" ry="30" fill="#5C7A3E" opacity="0.8"/>
+            <ellipse cx="410" cy="155" rx="18" ry="22" fill="#4A6B2E" opacity="0.7"/>
+            <ellipse cx="440" cy="160" rx="16" ry="20" fill="#5C7A3E" opacity="0.6"/>
+            <!-- Ceiling lights -->
+            <circle cx="120" cy="15" r="8" fill="#FFD700" opacity="0.5"/>
+            <circle cx="120" cy="15" r="4" fill="#FFD700" opacity="0.8"/>
+            <line x1="120" y1="0" x2="120" y2="23" stroke="#A0714A" stroke-width="1"/>
+            <circle cx="280" cy="15" r="8" fill="#FFD700" opacity="0.5"/>
+            <circle cx="280" cy="15" r="4" fill="#FFD700" opacity="0.8"/>
+            <line x1="280" y1="0" x2="280" y2="23" stroke="#A0714A" stroke-width="1"/>
+            <!-- Projector screen -->
+            <rect x="330" y="20" width="130" height="80" rx="4" fill="white" opacity="0.8"/>
+            <rect x="330" y="20" width="130" height="80" rx="4" fill="none" stroke="#A0714A" stroke-width="2"/>
+            <text x="395" y="55" text-anchor="middle" font-size="10" fill="#3E2723" font-family="serif" font-weight="bold">SSC</text>
+            <text x="395" y="70" text-anchor="middle" font-size="7" fill="#5C3520" font-family="sans-serif">SINGARAJA SOCIAL</text>
+            <!-- Logo star decoration -->
+            <text x="368" y="58" font-size="8" fill="#B89A00">✦</text>
+            <text x="412" y="58" font-size="8" fill="#B89A00">✦</text>
+          </svg>
+        </div>
+
+        <!-- Floating price card -->
+        <div class="absolute -bottom-4 -left-4 section-card px-4 py-3 hidden md:block" data-aos="zoom-in" data-aos-delay="400">
+          <div class="font-inter text-xs text-coffee-400 uppercase tracking-wide">Mulai dari</div>
+          <div class="font-playfair text-xl font-700 text-coffee-700">Rp 500.000<span class="font-inter text-xs text-coffee-400">/sesi</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GALLERY SECTION (Filterable Masonry)
+============================================================ -->
+<section id="gallery" class="py-20 px-4 md:px-8 bg-gradient-to-b from-cream to-cream-dark">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-10" data-aos="fade-up">
+      <div class="gold-divider mb-4"></div>
+      <p class="font-inter text-xs font-500 tracking-[0.2em] uppercase text-coffee-400 mb-2">Visual Experience</p>
+      <h2 class="font-playfair text-3xl md:text-4xl font-700 text-coffee-700">Experience <em>Our Space</em></h2>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap gap-2 justify-center mb-8" data-aos="fade-up">
+      <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+      <button class="filter-btn" onclick="filterGallery('indoor', this)">Indoor</button>
+      <button class="filter-btn" onclick="filterGallery('outdoor', this)">Outdoor</button>
+      <button class="filter-btn" onclick="filterGallery('event', this)">Event Space</button>
+    </div>
+
+    <!-- Gallery Grid (Masonry) -->
+    <div class="gallery-grid" data-aos="fade-up">
+
+      <!-- Gallery Item 1: Indoor tall -->
+      <div class="gallery-item" data-cat="indoor" onclick="openLightbox(this)">
+        <svg viewBox="0 0 280 360" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="280" height="360" fill="#3E2723"/>
+          <rect x="0" y="0" width="280" height="360" fill="url(#ind1)"/>
+          <defs>
+            <linearGradient id="ind1" x1="0" y1="0" x2="280" y2="360" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#5C3520"/>
+              <stop offset="100%" stop-color="#2C1A17"/>
+            </linearGradient>
+          </defs>
+          <!-- warm lighting circles -->
+          <circle cx="70" cy="60" r="80" fill="#FFD700" opacity="0.05"/>
+          <circle cx="210" cy="80" r="60" fill="#C8965A" opacity="0.07"/>
+          <!-- floor -->
+          <rect x="0" y="280" width="280" height="80" fill="#5C3520" opacity="0.4"/>
+          <!-- sofa -->
+          <rect x="30" y="230" width="150" height="60" rx="8" fill="#7A4F35"/>
+          <rect x="30" y="220" width="150" height="20" rx="8" fill="#5C3520"/>
+          <rect x="30" y="230" width="15" height="60" rx="4" fill="#5C3520"/>
+          <rect x="165" y="230" width="15" height="60" rx="4" fill="#5C3520"/>
+          <!-- cushions -->
+          <rect x="50" y="230" width="40" height="35" rx="6" fill="#C8965A" opacity="0.6"/>
+          <rect x="95" y="230" width="40" height="35" rx="6" fill="#A0714A" opacity="0.6"/>
+          <rect x="140" y="230" width="30" height="35" rx="6" fill="#C8965A" opacity="0.5"/>
+          <!-- coffee table -->
+          <rect x="60" y="290" width="90" height="8" rx="4" fill="#3E2723"/>
+          <rect x="70" y="298" width="4" height="20" fill="#5C3520"/>
+          <rect x="136" y="298" width="4" height="20" fill="#5C3520"/>
+          <!-- coffee cups on table -->
+          <circle cx="80" cy="286" r="7" fill="#2C1A17"/>
+          <circle cx="100" cy="286" r="7" fill="#2C1A17"/>
+          <!-- wall shelf -->
+          <rect x="180" y="160" width="80" height="6" rx="3" fill="#5C3520"/>
+          <rect x="190" y="120" width="12" height="40" rx="3" fill="#7A4F35"/>
+          <rect x="208" y="130" width="10" height="30" rx="3" fill="#C8965A" opacity="0.6"/>
+          <ellipse cx="196" cy="118" rx="12" ry="15" fill="#4A6B2E"/>
+          <!-- warm lamp -->
+          <circle cx="220" cy="70" r="15" fill="#FFD700" opacity="0.15"/>
+          <circle cx="220" cy="70" r="8" fill="#FFD700" opacity="0.4"/>
+          <line x1="220" y1="55" x2="220" y2="30" stroke="#A0714A" stroke-width="2"/>
+          <text x="15" y="350" font-size="9" fill="#EDD9A3" font-family="sans-serif" opacity="0.7">Indoor Seating · Singaraja Social</text>
+        </svg>
+        <div class="gallery-overlay">
+          <span class="font-inter text-xs text-white font-500 tracking-wide">Indoor Seating Area</span>
+        </div>
+      </div>
+
+      <!-- Gallery Item 2: Outdoor short -->
+      <div class="gallery-item" data-cat="outdoor" onclick="openLightbox(this)">
+        <svg viewBox="0 0 280 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="280" height="200" fill="#EDD9A3"/>
+          <!-- sky -->
+          <rect width="280" height="100" fill="#87CEEB" opacity="0.3"/>
+          <!-- sun -->
+          <circle cx="240" cy="30" r="20" fill="#FFD700" opacity="0.4"/>
+          <!-- mountains bali -->
+          <path d="M0 120 Q70 60 140 100 Q200 50 280 110 L280 200 L0 200 Z" fill="#5C7A3E" opacity="0.5"/>
+          <path d="M0 140 Q80 100 160 130 Q220 100 280 130 L280 200 L0 200 Z" fill="#4A6B2E" opacity="0.6"/>
+          <!-- garden floor -->
+          <rect x="0" y="160" width="280" height="40" fill="#A0714A" opacity="0.4"/>
+          <!-- outdoor table -->
+          <ellipse cx="140" cy="160" rx="50" ry="12" fill="#7A4F35"/>
+          <rect x="136" y="160" width="8" height="25" fill="#5C3520"/>
+          <!-- chairs -->
+          <rect x="80" y="150" width="30" height="40" rx="4" fill="#5C3520"/>
+          <rect x="170" y="150" width="30" height="40" rx="4" fill="#5C3520"/>
+          <!-- plants flanking -->
+          <rect x="10" y="130" width="8" height="50" fill="#5C3520"/>
+          <ellipse cx="14" cy="125" rx="18" ry="22" fill="#5C7A3E" opacity="0.8"/>
+          <rect x="255" y="130" width="8" height="50" fill="#5C3520"/>
+          <ellipse cx="259" cy="125" rx="18" ry="22" fill="#4A6B2E" opacity="0.8"/>
+          <text x="10" y="195" font-size="9" fill="#5C3520" font-family="sans-serif" opacity="0.7">Outdoor Garden</text>
+        </svg>
+        <div class="gallery-overlay">
+          <span class="font-inter text-xs text-white font-500 tracking-wide">Outdoor Garden</span>
+        </div>
+      </div>
+
+      <!-- Gallery Item 3: Event space medium -->
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(this)">
+        <svg viewBox="0 0 280 260" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="280" height="260" fill="#2C1A17"/>
+          <rect width="280" height="260" fill="url(#ev1)"/>
+          <defs>
+            <linearGradient id="ev1" x1="0" y1="0" x2="0" y2="260" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#3E2723"/>
+              <stop offset="100%" stop-color="#1A0F0D"/>
+            </linearGradient>
+          </defs>
+          <!-- stage lighting -->
+          <circle cx="70" cy="20" r="40" fill="#FFD700" opacity="0.06"/>
+          <circle cx="140" cy="15" r="50" fill="#C8965A" opacity="0.05"/>
+          <circle cx="210" cy="20" r="40" fill="#FFD700" opacity="0.06"/>
+          <!-- spotlights -->
+          <path d="M50 0 L20 80 L80 80 Z" fill="#FFD700" opacity="0.04"/>
+          <path d="M140 0 L100 90 L180 90 Z" fill="#FFD700" opacity="0.04"/>
+          <path d="M230 0 L200 80 L260 80 Z" fill="#FFD700" opacity="0.04"/>
+          <!-- stage -->
+          <rect x="0" y="180" width="280" height="30" rx="0" fill="#5C3520" opacity="0.5"/>
+          <!-- tables theater style -->
+          <rect x="20" y="110" width="45" height="25" rx="3" fill="#5C3520" opacity="0.7"/>
+          <rect x="75" y="110" width="45" height="25" rx="3" fill="#5C3520" opacity="0.7"/>
+          <rect x="130" y="110" width="45" height="25" rx="3" fill="#5C3520" opacity="0.7"/>
+          <rect x="185" y="110" width="45" height="25" rx="3" fill="#5C3520" opacity="0.7"/>
+          <rect x="20" y="145" width="45" height="25" rx="3" fill="#5C3520" opacity="0.5"/>
+          <rect x="75" y="145" width="45" height="25" rx="3" fill="#5C3520" opacity="0.5"/>
+          <rect x="130" y="145" width="45" height="25" rx="3" fill="#5C3520" opacity="0.5"/>
+          <rect x="185" y="145" width="45" height="25" rx="3" fill="#5C3520" opacity="0.5"/>
+          <!-- presenter at front -->
+          <circle cx="140" cy="195" r="10" fill="#C8965A" opacity="0.6"/>
+          <rect x="134" y="205" width="12" height="20" rx="4" fill="#A0714A" opacity="0.6"/>
+          <!-- mic stand -->
+          <rect x="160" y="185" width="3" height="30" fill="#A0714A" opacity="0.5"/>
+          <circle cx="161.5" cy="183" r="5" fill="#7A4F35" opacity="0.7"/>
+          <!-- branding backdrop -->
+          <rect x="60" y="40" width="160" height="50" rx="4" fill="#3E2723" opacity="0.6"/>
+          <text x="140" y="62" text-anchor="middle" font-size="10" fill="#FFD700" font-family="serif" font-weight="bold">SINGARAJA SOCIAL</text>
+          <text x="140" y="78" text-anchor="middle" font-size="7" fill="#C8965A" font-family="sans-serif">COFFEE & EVENT SPACE</text>
+          <text x="10" y="250" font-size="9" fill="#EDD9A3" font-family="sans-serif" opacity="0.6">Event Space · Up to 150 pax</text>
+        </svg>
+        <div class="gallery-overlay">
+          <span class="font-inter text-xs text-white font-500 tracking-wide">Event & Workshop Space</span>
+        </div>
+      </div>
+
+      <!-- Gallery Item 4: Indoor bar counter -->
+      <div class="gallery-item" data-cat="indoor" onclick="openLightbox(this)">
+        <svg viewBox="0 0 280 220" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="280" height="220" fill="#2C1A17"/>
+          <!-- warm gradient -->
+          <rect width="280" height="220" fill="url(#bar1)" opacity="0.8"/>
+          <defs>
+            <linearGradient id="bar1" x1="0" y1="0" x2="280" y2="220" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#5C3520"/>
+              <stop offset="100%" stop-color="#1A0F0D"/>
+            </linearGradient>
+          </defs>
+          <!-- bar counter -->
+          <rect x="0" y="130" width="280" height="90" fill="#3E2723"/>
+          <rect x="0" y="128" width="280" height="8" rx="2" fill="#7A4F35"/>
+          <!-- espresso machine -->
+          <rect x="80" y="80" width="70" height="50" rx="6" fill="#A0714A"/>
+          <rect x="85" y="85" width="60" height="40" rx="4" fill="#7A4F35"/>
+          <circle cx="115" cy="100" r="12" fill="#5C3520"/>
+          <circle cx="115" cy="100" r="8" fill="#3E2723"/>
+          <rect x="95" y="115" width="20" height="10" rx="3" fill="#5C3520"/>
+          <rect x="125" y="115" width="20" height="10" rx="3" fill="#5C3520"/>
+          <!-- group head -->
+          <rect x="100" y="120" width="30" height="8" rx="4" fill="#C8965A"/>
+          <!-- portafilter -->
+          <rect x="104" y="128" width="22" height="5" rx="2" fill="#A0714A"/>
+          <!-- bar tools -->
+          <rect x="160" y="90" width="8" height="45" rx="4" fill="#A0714A" opacity="0.7"/>
+          <rect x="172" y="95" width="8" height="40" rx="4" fill="#5C3520" opacity="0.7"/>
+          <rect x="184" y="88" width="6" height="47" rx="3" fill="#7A4F35" opacity="0.6"/>
+          <!-- coffee bag -->
+          <rect x="30" y="85" width="40" height="50" rx="4" fill="#3E2723"/>
+          <rect x="35" y="90" width="30" height="40" rx="3" fill="#5C3520"/>
+          <text x="50" y="115" text-anchor="middle" font-size="7" fill="#FFD700" font-family="sans-serif">SSC</text>
+          <!-- overhead lighting warm -->
+          <circle cx="140" cy="50" r="30" fill="#FFD700" opacity="0.08"/>
+          <circle cx="140" cy="50" r="15" fill="#FFD700" opacity="0.12"/>
+          <circle cx="140" cy="50" r="7" fill="#FFD700" opacity="0.4"/>
+          <line x1="140" y1="40" x2="140" y2="0" stroke="#A0714A" stroke-width="2" opacity="0.5"/>
+          <text x="10" y="215" font-size="9" fill="#EDD9A3" font-family="sans-serif" opacity="0.6">Bar Counter · Hand-crafted Brewing</text>
+        </svg>
+        <div class="gallery-overlay">
+          <span class="font-inter text-xs text-white font-500 tracking-wide">Bar Counter</span>
+        </div>
+      </div>
+
+      <!-- Gallery Item 5: Outdoor night -->
+      <div class="gallery-item" data-cat="outdoor" onclick="openLightbox(this)">
+        <svg viewBox="0 0 280 320" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="280" height="320" fill="#0D0A08"/>
+          <!-- night sky -->
+          <rect width="280" height="180" fill="#1A0F0D"/>
+          <!-- stars -->
+          <circle cx="30" cy="20" r="1.5" fill="white" opacity="0.6"/>
+          <circle cx="80" cy="40" r="1" fill="white" opacity="0.5"/>
+          <circle cx="130" cy="15" r="1.5" fill="white" opacity="0.7"/>
+          <circle cx="200" cy="30" r="1" fill="white" opacity="0.4"/>
+          <circle cx="250" cy="55" r="1.5" fill="white" opacity="0.6"/>
+          <circle cx="160" cy="50" r="1" fill="white" opacity="0.5"/>
+          <!-- moon -->
+          <circle cx="230" cy="35" r="18" fill="#FFD700" opacity="0.15"/>
+          <circle cx="238" cy="30" r="14" fill="#1A0F0D"/>
+          <!-- string lights -->
+          <path d="M0 120 Q70 100 140 115 Q210 100 280 120" stroke="#FFD700" stroke-width="1" fill="none" opacity="0.5"/>
+          <!-- bulbs -->
+          <circle cx="35" cy="115" r="4" fill="#FFD700" opacity="0.6"/>
+          <circle cx="70" cy="103" r="4" fill="#FFD700" opacity="0.6"/>
+          <circle cx="105" cy="110" r="4" fill="#FFD700" opacity="0.6"/>
+          <circle cx="140" cy="115" r="4" fill="#FFD700" opacity="0.7"/>
+          <circle cx="175" cy="108" r="4" fill="#FFD700" opacity="0.6"/>
+          <circle cx="210" cy="103" r="4" fill="#FFD700" opacity="0.6"/>
+          <circle cx="245" cy="115" r="4" fill="#FFD700" opacity="0.6"/>
+          <!-- light glow from bulbs -->
+          <circle cx="140" cy="115" r="20" fill="#FFD700" opacity="0.04"/>
+          <!-- ground -->
+          <rect x="0" y="230" width="280" height="90" fill="#2C1A17"/>
+          <!-- outdoor chairs -->
+          <rect x="50" y="200" width="50" height="50" rx="6" fill="#3E2723"/>
+          <rect x="55" y="195" width="40" height="12" rx="4" fill="#5C3520"/>
+          <rect x="170" y="200" width="50" height="50" rx="6" fill="#3E2723"/>
+          <rect x="175" y="195" width="40" height="12" rx="4" fill="#5C3520"/>
+          <!-- round table with candle -->
+          <ellipse cx="140" cy="215" rx="35" ry="10" fill="#5C3520"/>
+          <circle cx="140" cy="210" r="4" fill="#FFD700" opacity="0.6"/>
+          <circle cx="140" cy="210" r="12" fill="#FFD700" opacity="0.06"/>
+          <!-- candle flame -->
+          <ellipse cx="140" cy="204" rx="3" ry="6" fill="#FFD700" opacity="0.8"/>
+          <text x="10" y="315" font-size="9" fill="#EDD9A3" font-family="sans-serif" opacity="0.6">Outdoor Night · String Lights</text>
+        </svg>
+        <div class="gallery-overlay">
+          <span class="font-inter text-xs text-white font-500 tracking-wide">Outdoor Night Vibes</span>
+        </div>
+      </div>
+
+      <!-- Gallery Item 6: Event workshop -->
+      <div class="gallery-item" data-cat="event" onclick="openLightbox(this)">
+        <svg viewBox="0 0 280 200" width="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="280" height="200" fill="#EDD9A3"/>
+          <circle cx="140" cy="100" r="100" fill="#C8965A" opacity="0.15"/>
+          <!-- Classroom setup -->
+          <!-- front board -->
+          <rect x="30" y="20" width="220" height="50" rx="4" fill="#5C3520"/>
+          <rect x="33" y="23" width="214" height="44" rx="3" fill="#3E2723"/>
+          <text x="140" y="48" text-anchor="middle" font-size="10" fill="#C8965A" font-family="serif">Coffee Brewing Workshop</text>
+          <text x="140" y="62" text-anchor="middle" font-size="7" fill="#A0714A" font-family="sans-serif">Singaraja Social Coffee · 2024</text>
+          <!-- rows of tables -->
+          <rect x="20" y="90" width="55" height="20" rx="3" fill="#A0714A" opacity="0.6"/>
+          <rect x="85" y="90" width="55" height="20" rx="3" fill="#A0714A" opacity="0.6"/>
+          <rect x="150" y="90" width="55" height="20" rx="3" fill="#A0714A" opacity="0.6"/>
+          <rect x="215" y="90" width="45" height="20" rx="3" fill="#A0714A" opacity="0.5"/>
+          <!-- second row -->
+          <rect x="20" y="120" width="55" height="20" rx="3" fill="#A0714A" opacity="0.5"/>
+          <rect x="85" y="120" width="55" height="20" rx="3" fill="#A0714A" opacity="0.5"/>
+          <rect x="150" y="120" width="55" height="20" rx="3" fill="#A0714A" opacity="0.5"/>
+          <rect x="215" y="120" width="45" height="20" rx="3" fill="#A0714A" opacity="0.4"/>
+          <!-- people silhouettes -->
+          <circle cx="47" cy="85" r="6" fill="#5C3520" opacity="0.5"/>
+          <circle cx="112" cy="85" r="6" fill="#5C3520" opacity="0.5"/>
+          <circle cx="177" cy="85" r="6" fill="#5C3520" opacity="0.5"/>
+          <circle cx="237" cy="85" r="6" fill="#5C3520" opacity="0.5"/>
+          <circle cx="47" cy="115" r="6" fill="#5C3520" opacity="0.4"/>
+          <circle cx="112" cy="115" r="6" fill="#5C3520" opacity="0.4"/>
+          <circle cx="177" cy="115" r="6" fill="#5C3520" opacity="0.4"/>
+          <!-- coffee equipment on tables -->
+          <circle cx="30" cy="98" r="4" fill="#3E2723" opacity="0.6"/>
+          <circle cx="95" cy="98" r="4" fill="#3E2723" opacity="0.6"/>
+          <circle cx="160" cy="98" r="4" fill="#3E2723" opacity="0.6"/>
+          <text x="10" y="193" font-size="9" fill="#5C3520" font-family="sans-serif" opacity="0.7">Coffee Brewing Workshop · 40 pax</text>
+        </svg>
+        <div class="gallery-overlay">
+          <span class="font-inter text-xs text-white font-500 tracking-wide">Coffee Workshop Setup</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" onclick="closeLightbox()">
+  <div class="relative max-w-2xl w-full mx-4" onclick="event.stopPropagation()">
+    <div id="lightbox-content" class="rounded-2xl overflow-hidden"></div>
+    <button onclick="closeLightbox()" class="absolute -top-4 -right-4 w-10 h-10 bg-cream rounded-full flex items-center justify-center shadow-lg text-coffee-700 hover:bg-cream-dark transition-colors">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     EVENT SPACE RESERVATION FORM
+============================================================ -->
+<section id="reservation" class="py-20 px-4 md:px-8">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center mb-10" data-aos="fade-up">
+      <div class="gold-divider mb-4"></div>
+      <p class="font-inter text-xs font-500 tracking-[0.2em] uppercase text-coffee-400 mb-2">Reservasi via WhatsApp</p>
+      <h2 class="font-playfair text-3xl md:text-4xl font-700 text-coffee-700">Pesan <em>Event Space</em></h2>
+      <p class="font-inter text-sm text-coffee-400 mt-3 max-w-md mx-auto">Isi formulir di bawah ini dan kami akan langsung menghubungi Anda via WhatsApp untuk konfirmasi.</p>
+    </div>
+
+    <div class="section-card p-6 md:p-10" data-aos="fade-up">
+
+      <!-- Event Purpose Selector -->
+      <div class="mb-6">
+        <label class="form-label">Tujuan Event</label>
+        <div class="grid grid-cols-3 gap-3">
+          <div class="purpose-card" onclick="selectPurpose('Meeting', this)">
+            <div class="text-2xl mb-2">💼</div>
+            <div class="font-inter text-sm font-600 text-coffee-700">Meeting</div>
+            <div class="font-inter text-xs text-coffee-400 mt-0.5">Bisnis & Profesional</div>
+          </div>
+          <div class="purpose-card" onclick="selectPurpose('Workshop', this)">
+            <div class="text-2xl mb-2">🎓</div>
+            <div class="font-inter text-sm font-600 text-coffee-700">Workshop</div>
+            <div class="font-inter text-xs text-coffee-400 mt-0.5">Training & Seminar</div>
+          </div>
+          <div class="purpose-card" onclick="selectPurpose('Party', this)">
+            <div class="text-2xl mb-2">🎉</div>
+            <div class="font-inter text-sm font-600 text-coffee-700">Party</div>
+            <div class="font-inter text-xs text-coffee-400 mt-0.5">Ulang Tahun & Gathering</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Fields Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+
+        <div>
+          <label class="form-label" for="f-name">Nama Lengkap</label>
+          <input type="text" id="f-name" class="form-input" placeholder="Budi Santoso" />
+        </div>
+
+        <div>
+          <label class="form-label" for="f-phone">Nomor WhatsApp</label>
+          <input type="tel" id="f-phone" class="form-input" placeholder="08123456789" />
+        </div>
+
+        <div>
+          <label class="form-label" for="f-date">Tanggal Event</label>
+          <input type="date" id="f-date" class="form-input" />
+        </div>
+
+        <div>
+          <label class="form-label" for="f-time">Waktu Mulai</label>
+          <select id="f-time" class="form-input">
+            <option value="">Pilih waktu...</option>
+            <option>10:00 - 12:00</option>
+            <option>13:00 - 15:00</option>
+            <option>15:00 - 17:00</option>
+            <option>18:00 - 20:00</option>
+            <option>20:00 - 22:00</option>
+            <option>Seharian penuh</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="form-label" for="f-pax">Jumlah Tamu</label>
+          <select id="f-pax" class="form-input">
+            <option value="">Pilih kapasitas...</option>
+            <option>1-20 orang</option>
+            <option>21-50 orang</option>
+            <option>51-80 orang</option>
+            <option>81-120 orang</option>
+            <option>121-150 orang</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="form-label" for="f-catering">Catering</label>
+          <select id="f-catering" class="form-input">
+            <option value="">Pilih paket...</option>
+            <option>Coffee Break saja</option>
+            <option>Lunch Box</option>
+            <option>Full Catering</option>
+            <option>Tidak perlu catering</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label class="form-label" for="f-notes">Catatan Tambahan</label>
+        <textarea id="f-notes" class="form-input resize-none" rows="3" placeholder="Dekorasi khusus, kebutuhan teknis, atau permintaan lainnya..."></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button onclick="submitReservation()" class="btn-primary w-full justify-center py-4 text-sm">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M11.93 0C5.366 0 0 5.373 0 11.946c0 2.106.549 4.09 1.508 5.815L.057 23.882l6.304-1.654a11.916 11.916 0 0 0 5.569 1.378c6.564 0 11.93-5.373 11.93-11.946C23.86 5.373 18.494 0 11.93 0zm0 21.831a9.884 9.884 0 0 1-5.042-1.374l-.362-.215-3.742.982 1-3.648-.235-.374a9.876 9.876 0 0 1-1.512-5.261c0-5.455 4.436-9.893 9.893-9.893 5.457 0 9.893 4.438 9.893 9.893s-4.436 9.89-9.893 9.89z"/>
+        </svg>
+        Kirim via WhatsApp
+      </button>
+
+      <p class="font-inter text-xs text-coffee-400 text-center mt-4">
+        Anda akan diarahkan ke WhatsApp dengan pesan yang sudah terisi otomatis.<br/>
+        Konfirmasi dalam waktu 1×24 jam.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     INSTAGRAM CTA SECTION
+============================================================ -->
+<section class="py-20 px-4 md:px-8 bg-gradient-to-b from-cream to-cream-dark">
+  <div class="max-w-4xl mx-auto">
+    <div class="ig-card p-10 md:p-16 text-center" data-aos="zoom-in">
+      <div class="text-5xl mb-4">📸</div>
+      <h2 class="font-playfair text-3xl md:text-4xl font-700 text-cream mb-4">
+        Ikuti Perjalanan Kami<br /><em class="text-gold-300">di Instagram</em>
+      </h2>
+      <p class="font-inter text-sm text-cream/70 max-w-md mx-auto mb-8 leading-relaxed">
+        Follow kami untuk update menu terbaru, foto aesthetic space, dan behind-the-scenes pembuatan specialty coffee.
+      </p>
+      <a href="https://instagram.com/singarajasocialcoffee" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-gold-300 text-coffee-800 font-inter font-600 text-sm px-8 py-4 rounded-full hover:bg-gold-200 transition-colors">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        @singarajasocialcoffee
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER (Local SEO + Map)
+============================================================ -->
+<footer class="pt-16 pb-8 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+
+      <!-- Brand Column -->
+      <div>
+        <div class="flex items-center gap-3 mb-5">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="18" r="18" fill="#5C3520"/>
+            <ellipse cx="18" cy="21" rx="9" ry="6" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+            <path d="M14 15 Q16 11 18 15 Q20 11 22 15" stroke="#FFD700" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <ellipse cx="18" cy="21" rx="4.5" ry="3" fill="#FFD700" opacity="0.3"/>
+          </svg>
+          <div>
+            <div class="font-playfair font-700 text-cream text-base leading-tight">Singaraja Social</div>
+            <div class="font-inter text-[0.6rem] font-500 tracking-[0.2em] uppercase text-cream/50">Coffee & Event Space</div>
+          </div>
+        </div>
+        <p class="font-inter text-sm text-cream/60 leading-relaxed mb-5">
+          Tempat minum kopi premium dan ruang event modern di pusat kota Singaraja, Bali Utara.
+        </p>
+        <!-- Social Links -->
+        <div class="flex gap-3">
+          <a href="https://instagram.com/singarajasocialcoffee" target="_blank" rel="noopener" class="w-9 h-9 rounded-full border border-cream/20 flex items-center justify-center text-cream/60 hover:text-gold-300 hover:border-gold-300 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://tiktok.com/@singarajasocialcoffee" target="_blank" rel="noopener" class="w-9 h-9 rounded-full border border-cream/20 flex items-center justify-center text-cream/60 hover:text-gold-300 hover:border-gold-300 transition-colors">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.77 1.52V6.73a4.85 4.85 0 01-1-.04z"/></svg>
+          </a>
+          <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" class="w-9 h-9 rounded-full border border-cream/20 flex items-center justify-center text-cream/60 hover:text-gold-300 hover:border-gold-300 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Info Column -->
+      <div>
+        <h4 class="font-playfair text-lg font-600 text-cream mb-5">Informasi</h4>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B89A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <div class="font-inter text-sm text-cream/80">Jl. Ngurah Rai No. 24</div>
+              <div class="font-inter text-xs text-cream/50">Singaraja, Buleleng, Bali 81117</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B89A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>
+              <div class="font-inter text-sm text-cream/80">Senin – Minggu</div>
+              <div class="font-inter text-xs text-cream/50">10:00 – 22:00 WITA</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B89A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.6 10.77a19.79 19.79 0 01-3.07-8.67A2 2 0 012.51 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.49a16 16 0 006.61 6.61l.86-.86a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+6281234567890" class="footer-link font-inter text-sm">+62 812-3456-7890</a>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B89A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:hello@singarajasocial.com" class="footer-link font-inter text-sm">hello@singarajasocial.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Column -->
+      <div>
+        <h4 class="font-playfair text-lg font-600 text-cream mb-5">Temukan Kami</h4>
+        <div class="map-container">
+          <!-- Google Maps embed for Singaraja area -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.256!2d115.088!3d-8.112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMDYnNDMuMiJTIDExNcKwMDUnMTYuOCJF!5e0!3m2!1sen!2sid!4v1234567890"
+            width="100%"
+            height="200"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Singaraja Social Coffee Location"
+          ></iframe>
+        </div>
+        <a href="https://maps.google.com/?q=Jl+Ngurah+Rai+No+24+Singaraja+Bali" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 font-inter text-xs text-gold-300 mt-3 hover:text-gold-200 transition-colors">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Buka di Google Maps
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="border-t border-cream/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="font-inter text-xs text-cream/40">
+        © 2024 Singaraja Social Coffee. Semua hak dilindungi.
+      </p>
+      <p class="font-inter text-xs text-cream/30">
+        Kafe Specialty Coffee Terbaik di Singaraja, Bali Utara
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  // ─── AOS Initialization ────────────────────────────────────
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 60,
+    easing: 'ease-out-cubic',
+  });
+
+  // ─── Swiper.js Initialization ──────────────────────────────
+  const menuSwiper = new Swiper('.menuSwiper', {
+    slidesPerView: 1.15,
+    spaceBetween: 16,
+    centeredSlides: false,
+    loop: false,
+    grabCursor: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      480: { slidesPerView: 1.5 },
+      640: { slidesPerView: 2.2 },
+      900: { slidesPerView: 3 },
+      1200: { slidesPerView: 3.5 },
+    },
+  });
+
+  // ─── Navbar scroll behavior ─────────────────────────────────
+  const navbar = document.getElementById('navbar');
+  const progressBar = document.getElementById('progress-bar');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+
+    // Add scrolled class
+    navbar.classList.toggle('scrolled', scrollTop > 40);
+
+    // Update progress bar
+    progressBar.style.width = progress + '%';
+  });
+
+  // ─── Mobile Hamburger Menu ──────────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // ─── Menu Grid Toggle ───────────────────────────────────────
+  let menuExpanded = false;
+
+  function toggleMenu() {
+    menuExpanded = !menuExpanded;
+    const hiddenItems = document.getElementById('menu-hidden-items');
+    const btnText = document.getElementById('toggle-menu-text');
+    const btnIcon = document.getElementById('toggle-menu-icon');
+
+    if (menuExpanded) {
+      hiddenItems.classList.add('expanded');
+      btnText.textContent = 'Sembunyikan Menu';
+      btnIcon.style.transform = 'rotate(180deg)';
+    } else {
+      hiddenItems.classList.remove('expanded');
+      btnText.textContent = 'Lihat Semua Menu';
+      btnIcon.style.transform = 'rotate(0deg)';
+    }
+  }
+
+  // ─── Menu Category Filter ───────────────────────────────────
+  document.querySelectorAll('[data-cat]').forEach(btn => {
+    if (btn.tagName === 'BUTTON' && btn.closest('.flex')) {
+      btn.addEventListener('click', function () {
+        const cat = this.dataset.cat;
+        // Update active state
+        this.closest('.flex').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        // Filter items in both visible and hidden grids
+        document.querySelectorAll('.menu-grid-item').forEach(item => {
+          if (cat === 'all' || item.dataset.cat === cat) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    }
+  });
+
+  // ─── Gallery Filter ─────────────────────────────────────────
+  function filterGallery(cat, btn) {
+    // Update filter btn active state
+    btn.closest('.flex').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.style.display = 'block';
+        item.style.animation = 'none';
+        setTimeout(() => { item.style.animation = ''; }, 10);
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  // ─── Gallery Lightbox ───────────────────────────────────────
+  function openLightbox(galleryItem) {
+    const lb = document.getElementById('lightbox');
+    const content = document.getElementById('lightbox-content');
+    content.innerHTML = galleryItem.querySelector('svg').outerHTML;
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // ─── Event Purpose Selector ─────────────────────────────────
+  let selectedPurpose = '';
+
+  function selectPurpose(purpose, card) {
+    selectedPurpose = purpose;
+    document.querySelectorAll('.purpose-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+  }
+
+  // ─── Toast Notification ─────────────────────────────────────
+  function showToast(msg) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // ─── WhatsApp Reservation Form Submit ───────────────────────
+  function submitReservation() {
+    const name     = document.getElementById('f-name').value.trim();
+    const phone    = document.getElementById('f-phone').value.trim();
+    const date     = document.getElementById('f-date').value;
+    const time     = document.getElementById('f-time').value;
+    const pax      = document.getElementById('f-pax').value;
+    const catering = document.getElementById('f-catering').value;
+    const notes    = document.getElementById('f-notes').value.trim();
+
+    // Validation
+    if (!name) { alert('Mohon isi nama lengkap Anda.'); return; }
+    if (!phone) { alert('Mohon isi nomor WhatsApp Anda.'); return; }
+    if (!selectedPurpose) { alert('Mohon pilih tujuan event terlebih dahulu.'); return; }
+    if (!date) { alert('Mohon pilih tanggal event.'); return; }
+    if (!time) { alert('Mohon pilih waktu event.'); return; }
+    if (!pax) { alert('Mohon pilih jumlah tamu.'); return; }
+
+    // Format date to Indonesian
+    const dateObj = new Date(date);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = dateObj.toLocaleDateString('id-ID', options);
+
+    // Build WhatsApp message
+    const message = `Halo Singaraja Social Coffee! 👋
+
+Saya ingin melakukan reservasi Event Space:
+
+━━━━━━━━━━━━━━━━━━━
+📋 *DETAIL RESERVASI*
+━━━━━━━━━━━━━━━━━━━
+👤 *Nama:* ${name}
+📱 *No. WA:* ${phone}
+🎯 *Tujuan Event:* ${selectedPurpose}
+📅 *Tanggal:* ${formattedDate}
+🕐 *Waktu:* ${time}
+👥 *Jumlah Tamu:* ${pax}
+🍽️ *Catering:* ${catering || 'Belum ditentukan'}
+${notes ? `📝 *Catatan:* ${notes}` : ''}
+━━━━━━━━━━━━━━━━━━━
+
+Mohon info ketersediaan dan harga. Terima kasih! 🙏`;
+
+    // WhatsApp owner number (replace with actual number)
+    const ownerPhone = '6281234567890';
+    const waURL = `https://wa.me/${ownerPhone}?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp
+    window.open(waURL, '_blank');
+
+    showToast('✓ Diarahkan ke WhatsApp...');
+  }
+
+  // ─── Smooth scroll for anchor links ────────────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const navH = navbar.offsetHeight;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY - navH - 16;
+        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ─── Close lightbox on Escape ───────────────────────────────
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // ─── Set min date for reservation form ─────────────────────
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('f-date').setAttribute('min', today);
+</script>
+
+</body>
+</html>
