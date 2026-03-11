@@ -346,13 +346,22 @@
       </div>
     </div>
 
-    <div class="text-center mt-8" id="toggle-container" data-aos="fade-up">
-      <button id="toggle-menu-btn" class="btn-secondary" onclick="toggleMenu()">
+    <div class="flex flex-wrap justify-center items-center gap-4 mt-8" id="toggle-container" data-aos="fade-up">
+      
+      <button id="toggle-menu-btn" class="btn-secondary inline-flex items-center gap-2" onclick="toggleMenu()">
         <span id="toggle-menu-text">Lihat Semua Menu</span>
-        <svg id="toggle-menu-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline ml-2 transition-transform duration-300">
+        <svg id="toggle-menu-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform duration-300">
           <polyline points="6 9 12 15 18 9"/>
         </svg>
       </button>
+
+      <a href="menu.pdf" target="_blank" class="btn-secondary inline-flex items-center gap-2 group">
+        Lihat Menu PDF
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="group-hover:-translate-y-1 transition-transform duration-300">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+      </a>
+
     </div>
 
   </div>
